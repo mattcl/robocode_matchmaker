@@ -3,8 +3,12 @@ module NavigationHelpers
     case page_name
     when /the home\s?page/
       '/'
+    when /login page/
+      new_user_session_path
     when /register/
       new_user_registration_path
+    when /robots page/
+      bots_path
     else
       begin
         page_name =~/the (.*) page/

@@ -17,3 +17,6 @@
 # Ignore vim swap files
 *.swp
 *.swo
+
+# Ignore jar files
+*.jar

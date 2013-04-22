@@ -1,4 +1,9 @@
 RobocodeMatchmaker::Application.routes.draw do
+  resources :bots
+
+
+  get "bots/index"
+
   get "home/index"
 
   devise_for :users

@@ -15,6 +15,17 @@ SimpleForm.setup do |config|
     # b.use :hint,  :wrap_with => { :tag => :span, :class => :hint }
   end
 
+  config.wrappers :foundation_modified, :class => :input, :hint_class => :field_with_hint, :error_class => :error do |b|
+    b.use :html5
+    b.use :placeholder
+    b.optional :maxlength
+    b.optional :pattern
+    b.optional :min_max
+    b.optional :readonly
+    b.use :label_input
+    b.use :error, :wrap_with => { :tag => :div, :class => 'alert-box alert' }
+  end
+
   # CSS class for buttons
   config.button_class = 'button'
 

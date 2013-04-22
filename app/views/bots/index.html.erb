@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="large-11 large-centered column">
+    <h1>Current Robots</h1>
+    <% if user_signed_in? %>
+      <%= button_tag 'Upload new bot', :id => 'show_upload_button', :class => 'success small' %>
+    <% else %>
+      <%= link_to 'Login or register to upload', new_user_session_path, :class => 'button small' %>
+    <% end %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Creator</th>
+          <th>Bot Types</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+    <% @bots.each do |bot| %>
+      <tr>
+        <td><%= bot.jar_file.original_filename.gsub(/\.jar/, '') %></td>
+        <td><%= bot.user.username %></td>
+        <td><%= bot.categories.collect(&:name).sort.join(', ') %></td>
+        <td><%= link_to 'Stats', bot %></td>
+        <td><%= link_to 'Download', bot.jar_file.url %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>
+<% if user_signed_in? %>
+  <div id="upload_form_modal" class="reveal-modal medium">
+    <h3>Upload a new bot</h3>
+    <%= simple_form_for(@bot) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :jar_file, :as => :file, :required => true, :wrapper => :foundation_modified, :label => 'Select jar file' %>
+        <br />
+        <%= f.association :categories, :as => :check_boxes, :required => true, :wrapper => :foundation_modified, :label => 'Bot type' %>
+      </div>
+
+      <br />
+      <div class="form-actions">
+        <%= f.button :submit, 'Upload' %>
+        <%= button_tag 'Cancel', :id => 'upload_cancel_button', :class => 'secondary button' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
