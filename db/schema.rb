@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422031844) do
+ActiveRecord::Schema.define(:version => 20130422035001) do
 
   create_table "bots", :force => true do |t|
     t.integer  "user_id"
@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(:version => 20130422031844) do
     t.string   "jar_file_content_type"
     t.integer  "jar_file_file_size"
     t.datetime "jar_file_updated_at"
+  end
+
+  create_table "bots_categories", :id => false, :force => true do |t|
+    t.integer "bot_id"
+    t.integer "category_id"
+  end
+
+  add_index "bots_categories", ["bot_id", "category_id"], :name => "index_bots_categories_on_bot_id_and_category_id"
+  add_index "bots_categories", ["category_id", "bot_id"], :name => "index_bots_categories_on_category_id_and_bot_id"
+
+  create_table "categories", :force => true do |t|
+    t.string "name"
   end
 
   create_table "users", :force => true do |t|
