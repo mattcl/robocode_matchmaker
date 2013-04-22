@@ -1,4 +1,7 @@
 Feature: User account
+  As a mentor
+  I want kids to be able to create accounts
+  So that they can upload robots
   Scenario: Creating a new account
     Given I am not authenticated
     When I go to register
