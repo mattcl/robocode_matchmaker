@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130421235821) do
+ActiveRecord::Schema.define(:version => 20130422031844) do
+
+  create_table "bots", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "jar_file_file_name"
+    t.string   "jar_file_content_type"
+    t.integer  "jar_file_file_size"
+    t.datetime "jar_file_updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
