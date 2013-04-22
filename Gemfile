@@ -41,6 +41,7 @@ gem "devise"
 gem "activeadmin"
 gem "zurb-foundation", :group => [:assets]
 gem "simple_form"
+gem "paperclip"
 
 group :development, :test do
   gem "rspec-rails"
