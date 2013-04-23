@@ -42,6 +42,7 @@ gem "paperclip"
 
 group :development, :test do
   gem "rspec-rails"
+  gem "shoulda-matchers"
   gem "cucumber-rails", :require => false
   gem "database_cleaner"
   gem "jasminerice"
@@ -51,4 +52,5 @@ group :development, :test do
   gem "guard-cucumber"
   gem "guard-jasmine"
   gem "guard-livereload"
+  gem "zeus"
 end

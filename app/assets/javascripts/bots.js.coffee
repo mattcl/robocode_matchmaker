@@ -5,7 +5,7 @@ jQuery ->
   if $('#upload_form_modal').find('.alert-box').length > 0
     $('#upload_form_modal').foundation('reveal', 'open')
 
-  $('#show_upload_button').on 'click', ->
+  $('#show_upload_link').on 'click', ->
     $('#upload_form_modal').foundation('reveal', 'open')
     return false
 

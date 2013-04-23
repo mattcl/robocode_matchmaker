@@ -1,8 +1,6 @@
 RobocodeMatchmaker::Application.routes.draw do
+  resources :matches
   resources :bots
-
-
-  get "bots/index"
 
   get "home/index"
 

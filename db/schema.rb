@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422035001) do
+ActiveRecord::Schema.define(:version => 20130423045234) do
 
   create_table "bots", :force => true do |t|
     t.integer  "user_id"
@@ -33,6 +33,32 @@ ActiveRecord::Schema.define(:version => 20130422035001) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "entries", :force => true do |t|
+    t.integer  "bot_id"
+    t.integer  "match_id"
+    t.integer  "rank"
+    t.integer  "total_score"
+    t.integer  "survival"
+    t.integer  "survival_bonus"
+    t.integer  "bullet_damage"
+    t.integer  "bullet_bonus"
+    t.integer  "ram_damage"
+    t.integer  "ram_bonus"
+    t.integer  "firsts"
+    t.integer  "seconds"
+    t.integer  "thirds"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "matches", :force => true do |t|
+    t.integer  "category_id"
+    t.datetime "started_at"
+    t.datetime "finished_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -10,3 +10,11 @@ Feature: Uploading a bot
     And I should see "Login or register to upload"
     When I click "Login or register to upload"
     Then I should be on the login page
+
+  Scenario: Uploading a new bot
+    Given I am authenticated
+    When I go to the robots page
+    Then I should not see "Login or register to upload"
+    And I should see "Upload new bot"
+    When I click "Upload new bot"
+    Then I should see "Upload a new bot"
