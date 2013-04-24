@@ -11,16 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423045234) do
+ActiveRecord::Schema.define(:version => 20130424032351) do
 
   create_table "bots", :force => true do |t|
     t.integer  "user_id"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "jar_file_file_name"
     t.string   "jar_file_content_type"
     t.integer  "jar_file_file_size"
     t.datetime "jar_file_updated_at"
+    t.string   "base_name",             :default => "", :null => false
   end
 
   create_table "bots_categories", :id => false, :force => true do |t|
@@ -32,7 +33,8 @@ ActiveRecord::Schema.define(:version => 20130423045234) do
   add_index "bots_categories", ["category_id", "bot_id"], :name => "index_bots_categories_on_category_id_and_bot_id"
 
   create_table "categories", :force => true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "battle_size", :default => 0, :null => false
   end
 
   create_table "entries", :force => true do |t|
