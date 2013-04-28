@@ -7,8 +7,8 @@ FactoryGirl.define do
   end
 
   factory :category do
-    name '1v1'
-    battle_size 2
+    sequence(:name) { |n| "category-#{n}" }
+    association :battle_configuration
   end
 
   factory :bot do

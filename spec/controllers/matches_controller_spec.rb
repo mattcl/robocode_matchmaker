@@ -9,11 +9,19 @@ describe MatchesController do
     end
   end
 
-  describe "GET 'show'" do
-    it "returns http success" do
-      get 'show'
-      response.should be_success
+  describe "POST create" do
+    it 'creates a new match given a category' do
+      pending 'writing the creation logic'
+      category = create(:category)
+      Match.should_receive(:new).with("category_id" => category.id)
+      post :create, { "category_id" => category.id }
+    end
+
+    it 'saves the match'
+
+    it 'redirects to the Matches index' do
+      post :create
+      response.should redirect_to(:action => "index")
     end
   end
-
 end

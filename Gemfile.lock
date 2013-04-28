@@ -283,7 +283,7 @@ DEPENDENCIES
   paperclip
   rails (= 3.2.13)
   rb-inotify
-  rspec-rails
+  rspec-rails (> 2.10.0)
   sass-rails (~> 3.2.3)
   shoulda-matchers
   simple_form

@@ -1,12 +1,13 @@
 class Match < ActiveRecord::Base
   attr_accessible :category_id, :finished_at, :started_at
 
-  has_one :category
+  belongs_to :category
   has_many :entries
   has_many :bots, :through => :entries
 
-  def self.generate(category_id)
-    category = Category.find(category_id)
-    bots = bots.group(:base_name).pluck(:jar_file_file_name)
+  validates_presence_of :category
+
+  def self.create_for(category)
+
   end
 end

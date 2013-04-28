@@ -4,4 +4,8 @@ class MatchesController < ApplicationController
 
   def show
   end
+
+  def create
+    redirect_to :action => :index
+  end
 end

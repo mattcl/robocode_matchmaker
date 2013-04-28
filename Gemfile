@@ -41,7 +41,7 @@ gem "simple_form"
 gem "paperclip"
 
 group :development, :test do
-  gem "rspec-rails"
+  gem "rspec-rails", "> 2.10.0"
   gem "shoulda-matchers"
   gem "factory_girl_rails"
   gem "cucumber-rails", :require => false

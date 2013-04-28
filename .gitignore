@@ -20,3 +20,7 @@
 
 # Ignore jar files
 *.jar
+
+# Ignore zeus files
+custom_plan.rb
+zeus.json
