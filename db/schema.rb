@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130427234002) do
+ActiveRecord::Schema.define(:version => 20130428063519) do
 
   create_table "battle_configurations", :force => true do |t|
     t.string   "description"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130427234002) do
     t.integer  "jar_file_file_size"
     t.datetime "jar_file_updated_at"
     t.string   "base_name",             :default => "", :null => false
+    t.integer  "entries_count",         :default => 0
   end
 
   create_table "bots_categories", :id => false, :force => true do |t|

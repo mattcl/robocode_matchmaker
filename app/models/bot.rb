@@ -13,12 +13,19 @@ class Bot < ActiveRecord::Base
     :size => { :in => 0..2.megabytes }
   validates_presence_of :user_id
   validates :categories, :length => { :minimum => 1, :too_short => 'must specify at least one category' }
+  validate :base_name_unique_to_user
 
-  before_save :assign_base_name
+  before_validation :assign_base_name
 
   private
 
+  def base_name_unique_to_user
+    if self.base_name and Bot.where("base_name = ? AND user_id != ?", self.base_name, self.user_id).any?
+      errors.add(:jar_file, "the package and name combination has already been taken by another user")
+    end
+  end
+
   def assign_base_name
-    self.base_name = self.jar_file_file_name.gsub(/_[^_]+.jar/, '')
+    self.base_name = self.jar_file_file_name.gsub(/_[^_]+.jar/, '') if self.jar_file_file_name
   end
 end

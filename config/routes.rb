@@ -1,10 +1,15 @@
 RobocodeMatchmaker::Application.routes.draw do
+
   resources :matches
   resources :bots
 
   get "home/index"
 
   devise_for :users
+
+  namespace :api, :defaults => { :format => 'json' } do
+    resources :matches
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
