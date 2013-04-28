@@ -39,6 +39,9 @@ gem "activeadmin"
 gem "zurb-foundation", :group => [:assets]
 gem "simple_form"
 gem "paperclip"
+gem "jbuilder"
+gem "rabl"
+gem "oj"
 
 group :development, :test do
   gem "rspec-rails", "> 2.10.0"

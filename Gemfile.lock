@@ -137,6 +137,9 @@ GEM
     jasminerice (0.0.10)
       coffee-rails
       haml
+    jbuilder (1.3.0)
+      activesupport (>= 3.0.0)
+      multi_json (>= 1.2.0)
     journey (1.0.4)
     jquery-fileupload-rails (0.4.1)
       actionpack (>= 3.1)
@@ -166,6 +169,7 @@ GEM
     mime-types (1.23)
     multi_json (1.7.2)
     nokogiri (1.5.9)
+    oj (2.0.11)
     orm_adapter (0.4.0)
     paperclip (3.4.1)
       activemodel (>= 3.0.0)
@@ -180,6 +184,8 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
+    rabl (0.8.4)
+      activesupport (>= 2.3.14)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -278,9 +284,12 @@ DEPENDENCIES
   guard-livereload
   guard-rspec
   jasminerice
+  jbuilder
   jquery-fileupload-rails
   jquery-rails
+  oj
   paperclip
+  rabl
   rails (= 3.2.13)
   rb-inotify
   rspec-rails (> 2.10.0)

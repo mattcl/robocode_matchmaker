@@ -17,6 +17,10 @@ class Bot < ActiveRecord::Base
 
   before_validation :assign_base_name
 
+  def proper_name
+    self.jar_file_file_name.gsub(/\.jar$/, '')
+  end
+
   private
 
   def base_name_unique_to_user

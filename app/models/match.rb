@@ -1,7 +1,7 @@
 class Match < ActiveRecord::Base
   attr_accessible :category, :finished_at, :started_at, :bots
 
-  belongs_to :category
+  belongs_to :category, :counter_cache => true
   has_many :entries
   has_many :bots, :through => :entries
 
