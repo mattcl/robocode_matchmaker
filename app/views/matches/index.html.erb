@@ -1,2 +1,26 @@
-<h1>Matches#index</h1>
-<p>Find me in app/views/matches/index.html.erb</p>
+<div class="row">
+  <div class="large-11 large-centered column">
+    <h1>Matches</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Winner</th>
+          <th>Started</th>
+          <th>Finished</th>
+          <th>Bots</th>
+          <th></th>
+        </tr>
+      </thead>
+      <% @matches.each do |match| %>
+        <tr>
+          <td><%= match.category.name %></td>
+          <td><%= %></td>
+          <td><%= %></td>
+          <td><%= %></td>
+          <td><%= link_to 'details', match_path(match) %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

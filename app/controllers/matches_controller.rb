@@ -1,11 +1,9 @@
 class MatchesController < ApplicationController
   def index
+    @matches = Match.all
   end
 
   def show
-  end
-
-  def create
-    redirect_to :action => :index
+    @match = Match.includes(:category, :bots).find(params[:id])
   end
 end

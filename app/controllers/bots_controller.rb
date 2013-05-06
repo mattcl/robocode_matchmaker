@@ -7,11 +7,11 @@ class BotsController < InheritedResources::Base
   end
 
   def show
-    @bot = Bot.find(params[:id])
+    @bot = Bot.includes(:entries).find(params[:id])
   end
 
   def create
-    @bot = current_user.bots.new(params[:id])
+    @bot = current_user.bots.new(params[:bot])
     if @bot.save
       redirect_to bots_path
     else

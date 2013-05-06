@@ -34,6 +34,11 @@ FactoryGirl.define do
     end
   end
 
+  factory :new_bot, :class => Bot do
+    user
+    jar_file Rack::Test::UploadedFile.new('spec/fixtures/jar_files/rampancy.micro.Epiphron_1.0.jar', 'application/x-java-archive')
+  end
+
   factory :match do
     association :category
   end

@@ -69,11 +69,17 @@ describe BotsController, :type => :controller do
       end
 
       context 'with valid parameters' do
-        it 'creates a new bot'
+        before(:each) do
+          @attrs = attributes_for(:new_bot, :user => @user, :category_ids => [create(:category).id])
+        end
 
-        it 'renders the index action' do
-          post :create, attributes_for(:bot, :user => @user)
-          response.should render_template :index
+        it 'creates a new Bot' do
+          expect { post :create, :bot => @attrs }.to change(Bot, :count).by(1)
+        end
+
+        it 'redirects to the bots_path' do
+          post :create, :bot => @attrs
+          response.should redirect_to(bots_path)
         end
       end
     end

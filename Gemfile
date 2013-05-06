@@ -45,6 +45,7 @@ gem "oj"
 
 group :development, :test do
   gem "rspec-rails", "> 2.10.0"
+  gem "capybara"
   gem "shoulda-matchers"
   gem "factory_girl_rails"
   gem "cucumber-rails", :require => false
