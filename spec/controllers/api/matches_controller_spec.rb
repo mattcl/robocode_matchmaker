@@ -81,12 +81,77 @@ describe Api::MatchesController do
       @match = create(:match, :category => @category, :bots => @bots)
     end
 
+    context 'without a valid id' do
+      it { expect {put :update, :id => 0, :match => {}, :format => :json }.to raise_error }
+    end
+
+    context 'with invalid attributes' do
+      before(:each) do
+        @data = {'entries_attributes' => [{'id' => @match.entries.first.id, 'bullet_bonus' => 'derp'}]}
+      end
+
+      it 'returns success => 0' do
+        put :update, :id => @match, :match => @data, :format => :json
+        response.should be_success
+        body = JSON.parse(response.body)
+        body.should include('success')
+        body['success'].should eq(0)
+      end
+
+      it 'does not update the Match' do
+        put :update, :id => @match, :match => @data, :format => :json
+        @match.reload
+        @match.finished_at.should be_nil
+      end
+
+      it 'does not update the Entries' do
+        put :update, :id => @match, :match => @data, :format => :json
+        @match.reload.entries.first.bullet_bonus.should be_nil
+      end
+    end
+
     context 'with valid attributes' do
-      it 'updates the Match' do
-        data = Jbuilder.encode do |json|
-          json.entries @match.entries, :id, :rank, :ram_bonus, :ram_damage, :bullet_bonus, :bullet_damage, :survival, :survival_bonus, :total_score, :firsts, :seconds, :thirds
+      before(:each) do
+        @data = {'entries_attributes' => []}
+        @match.entries.each_with_index do |entry, index|
+          @data['entries_attributes'] << {
+            'id' => entry.id,
+            'bullet_bonus' => 10,
+            'bullet_damage' => 34,
+            'firsts' => 0,
+            'seconds' => 1,
+            'thirds' => 3,
+            'ram_bonus' => 100,
+            'ram_damage' => 40,
+            'rank' => 2,
+            'survival' => 15,
+            'survival_bonus' => index + 1,
+            'total_score' => 80
+          }
         end
-        put :update, :id => @match, :data => JSON.parse(data), :format => :json
+      end
+
+      it 'returns success => 1' do
+        put :update, :id => @match, :match => @data, :format => :json
+        response.should be_success
+        body = JSON.parse(response.body)
+        body.should include('success')
+        body['success'].should eq(1)
+      end
+
+      it 'updates the Match' do
+        put :update, :id => @match, :match => @data, :format => :json
+        @match.reload
+        @match.finished_at.should_not be_nil
+      end
+
+      it 'updates the Entries' do
+        put :update, :id => @match, :match => @data, :format => :json
+        @match.reload.entries.each_with_index do |entry, index|
+          @data['entries_attributes'][index].each do |key, value|
+            entry.send(key.to_sym).should eq(value)
+          end
+        end
       end
     end
   end

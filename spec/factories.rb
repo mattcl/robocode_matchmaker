@@ -28,6 +28,10 @@ FactoryGirl.define do
         FactoryGirl.create_list(:match, evaluator.entries_count, :bots => [bot])
       end
     end
+
+    factory :invalid_bot do
+      jar_file_file_name nil
+    end
   end
 
   factory :match do

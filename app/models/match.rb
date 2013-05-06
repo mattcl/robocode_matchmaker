@@ -1,9 +1,11 @@
 class Match < ActiveRecord::Base
-  attr_accessible :category, :finished_at, :started_at, :bots
+  attr_accessible :category, :finished_at, :started_at, :bots, :entries_attributes
 
   belongs_to :category, :counter_cache => true
   has_many :entries
   has_many :bots, :through => :entries
+
+  accepts_nested_attributes_for :entries
 
   validates_presence_of :category
 

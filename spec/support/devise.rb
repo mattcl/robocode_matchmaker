@@ -5,7 +5,7 @@ module ControllerHelpers
       controller.stub :current_user => nil
     else
       request.env['warden'].stub :authenticate! => user
-      controller.stup :current_user => user
+      controller.stub :current_user => user
     end
   end
 end

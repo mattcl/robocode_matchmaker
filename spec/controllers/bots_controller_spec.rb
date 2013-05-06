@@ -1,10 +1,81 @@
 require 'spec_helper'
 
 describe BotsController, :type => :controller do
-  describe "GET 'index'" do
-    it "returns http success" do
+  describe "GET index" do
+    it 'populates an array of Bots' do
+      bots = create_list(:bot, 2)
       get 'index'
       response.should be_success
+      assigns(:bots).should eq(bots)
+    end
+
+    context 'without an authenticated User' do
+      it 'does not include a new Bot' do
+        get 'index'
+        assigns(:bot).should be_nil
+      end
+    end
+
+    context 'with an authenticated User' do
+      it 'includes a new Bot' do
+        user = create(:user)
+        sign_in user
+        get 'index'
+        assigns(:bot).should be_a(Bot)
+        assigns(:bot).should be_new_record
+      end
+    end
+  end
+
+  describe 'GET show' do
+    before(:each) do
+      @bot = create(:bot)
+    end
+
+    it 'assigns the requested Bot to @bot' do
+      get :show, :id => @bot
+      assigns(:bot).should eq(@bot)
+    end
+
+    it 'renders the show view' do
+      get :show, :id => @bot
+      response.should render_template :show
+    end
+  end
+
+  describe 'POST create' do
+    context 'without an authenticated User' do
+      it 'redirects to login' do
+        post :create
+        response.should redirect_to(new_user_session_path)
+      end
+    end
+
+    context 'with an authenticated User' do
+      before(:each) do
+        @user = create(:user)
+        sign_in @user
+      end
+
+      context 'with invalid parameters' do
+        it 'does not save the new Bot' do
+          expect { post :create, attributes_for(:invalid_bot) }.to_not change(Bot, :count)
+        end
+
+        it 'renders the index action' do
+          post :create, attributes_for(:invalid_bot)
+          response.should render_template :index
+        end
+      end
+
+      context 'with valid parameters' do
+        it 'creates a new bot'
+
+        it 'renders the index action' do
+          post :create, attributes_for(:bot, :user => @user)
+          response.should render_template :index
+        end
+      end
     end
   end
 end

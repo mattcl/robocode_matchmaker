@@ -4,6 +4,7 @@ describe Match do
   it { should belong_to(:category) }
   it { should have_many(:entries) }
   it { should have_many(:bots).through(:entries) }
+  it { should accept_nested_attributes_for(:entries) }
   it { should validate_presence_of(:category) }
 
   context 'scopes' do

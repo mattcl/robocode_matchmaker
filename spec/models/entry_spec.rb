@@ -11,4 +11,19 @@ describe Entry do
     create(:entry, :bot => bot)
     bot.reload.entries_count.should eq(1)
   end
+
+  context 'on update' do
+    before(:each) do
+      @entry = create(:entry)
+    end
+
+    [:bullet_bonus, :bullet_damage, :firsts, :ram_bonus, :ram_damage,
+      :rank, :seconds, :survival, :survival_bonus, :thirds, :total_score].each do |sym|
+      it "validates #{sym.to_s} is integer" do
+        @entry.update_attributes({sym => 'foo'}).should be_false
+        @entry.update_attributes({sym => 1.2}).should be_false
+        @entry.update_attributes({sym => 1}).should be_true
+      end
+    end
+  end
 end

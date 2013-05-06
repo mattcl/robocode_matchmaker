@@ -4,4 +4,8 @@ class Entry < ActiveRecord::Base
 
   belongs_to :bot, :counter_cache => true
   belongs_to :match
+
+  validates :bullet_bonus, :bullet_damage, :firsts, :ram_bonus, :ram_damage,
+    :rank, :seconds, :survival, :survival_bonus, :thirds, :total_score,
+    :numericality => {:only_integer => true}, :on => :update
 end
