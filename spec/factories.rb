@@ -17,7 +17,12 @@ FactoryGirl.define do
     jar_file_content_type { 'application/x-java-archive' }
     jar_file_file_size { 1024 }
     base_name ''
-    categories { |a| [a.association(:category)] }
+
+    ignore do
+      categories_count 2
+    end
+
+    categories { FactoryGirl.create_list(:category, categories_count) }
 
     factory :bot_with_entries do
       ignore do
@@ -41,21 +46,55 @@ FactoryGirl.define do
 
   factory :match do
     association :category
+
+    factory :match_with_bots do
+      ignore do
+        bots_count 3
+        finished false
+      end
+
+      factory :started_match do
+        started_at { 2.minutes.ago }
+
+        factory :finished_match do
+
+          finished_at { Time.now }
+
+          ignore do
+            finished true #change the behavior of the entry creation
+          end
+        end
+      end
+
+      after(:create) do |match, evaluator|
+        bots = create_list(:bot, evaluator.bots_count, :categories => [evaluator.category])
+        bots.each_with_index do |bot, index|
+          if evaluator.finished
+            create(:entry_with_results, :bot => bot, :match => match, :rank => index + 1)
+          else
+            create(:entry, :bot => bot, :match => match)
+          end
+        end
+      end
+    end
   end
 
   factory :entry do
     association :bot
     association :match
-    bullet_bonus 100
-    bullet_damage 10
-    firsts 1
-    seconds 2
-    thirds 1
-    ram_bonus 15
-    ram_damage 4
-    rank 4
-    survival 3
-    survival_bonus 10
-    total_score 200
+
+    factory :entry_with_results do
+      bullet_bonus 100
+      bullet_damage 10
+      firsts 1
+      seconds 2
+      thirds 1
+      ram_bonus 15
+      ram_damage 4
+      rank 4
+      survival 3
+      survival_bonus 10
+      total_score 200
+    end
   end
 end

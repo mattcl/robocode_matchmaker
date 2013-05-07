@@ -31,4 +31,9 @@ class Match < ActiveRecord::Base
 
     match = Match.create(:category => category, :bots => bots)
   end
+
+  def winner
+    nil if finished_at.nil?
+    @winner ||= entries.where(:rank => 1).first
+  end
 end

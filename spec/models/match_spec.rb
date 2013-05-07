@@ -103,10 +103,32 @@ describe Match do
 
         match = Match.create_for(category)
         match.should have(2).entries
-        match.bots.should include(bot1)
-        match.bots.should include(bot2)
+        match.bots.should include(bot1, bot2)
+      end
+    end
+  end
+
+  describe '#winner' do
+    context 'when the match is finished' do
+      it 'returns the Bot corresponding to the Entry with rank 1' do
+        match = create(:finished_match)
+        expected = match.entries.where(:rank => 1).first
+        match.winner.should eq(expected)
       end
     end
 
+    context 'when the match is not finished' do
+      it 'returns nil' do
+        match = create(:started_match)
+        match.winner.should be_nil
+      end
+    end
+
+    context 'when the match is not started' do
+      it 'returns nil' do
+        match = create(:match_with_bots)
+        match.winner.should be_nil
+      end
+    end
   end
 end

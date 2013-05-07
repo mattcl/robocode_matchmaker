@@ -13,4 +13,20 @@ describe MatchesController do
       assigns(:matches).should eq(@matches)
     end
   end
+
+  describe 'GET show' do
+    before(:each) do
+      @match = create(:match)
+    end
+
+    it 'assigns the requested match to @match' do
+      get :show, :id => @match
+      assigns(:match).should eq(@match)
+    end
+
+    it 'renders the show view' do
+      get :show, :id => @match
+      response.should render_template :show
+    end
+  end
 end

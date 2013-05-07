@@ -14,7 +14,7 @@ describe Entry do
 
   context 'on update' do
     before(:each) do
-      @entry = create(:entry)
+      @entry = create(:entry_with_results)
     end
 
     [:bullet_bonus, :bullet_damage, :firsts, :ram_bonus, :ram_damage,
