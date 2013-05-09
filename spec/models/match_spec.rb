@@ -108,6 +108,26 @@ describe Match do
     end
   end
 
+  describe '#status' do
+    context 'for a match that has not started' do
+      it 'is "pending"' do
+        build(:match).status.should eq('pending')
+      end
+    end
+
+    context 'for a match that has started but not finished' do
+      it 'is "running"' do
+        build(:started_match).status.should eq('running')
+      end
+    end
+
+    context 'for a match that has finished' do
+      it 'is "finished"' do
+        build(:finished_match).status.should eq('finished')
+      end
+    end
+  end
+
   describe '#winner' do
     context 'when the match is finished' do
       it 'returns the Bot corresponding to the Entry with rank 1' do

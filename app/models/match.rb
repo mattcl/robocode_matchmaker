@@ -32,6 +32,12 @@ class Match < ActiveRecord::Base
     match = Match.create(:category => category, :bots => bots)
   end
 
+  def status
+    return 'pending' if started_at.nil?
+    return 'running' if finished_at.nil?
+    'finished'
+  end
+
   def winner
     nil if finished_at.nil?
     @winner ||= entries.where(:rank => 1).first

@@ -9,13 +9,6 @@ describe Bot do
   it { should validate_attachment_content_type(:jar_file).allowing('application/x-java-archive') }
   it { should validate_attachment_size(:jar_file).less_than(2.megabytes) }
 
-  describe '#proper_name' do
-    it 'is the file name without the .jar extension' do
-      bot = build(:bot, :jar_file_file_name => 'foo_bar_baz.jar')
-      bot.proper_name.should eq('foo_bar_baz')
-    end
-  end
-
   describe '#base_name' do
     it 'is set before validation' do
       bot = build(:bot, :base_name => 'replace', :jar_file_file_name => 'foo_bar_baz.jar')
@@ -36,6 +29,13 @@ describe Bot do
       user = create(:user)
       create(:bot, :user => user, :jar_file_file_name => 'derp.bot_1.0.jar').should be_valid
       create(:bot, :user => user, :jar_file_file_name => 'derp.bot_1.2.jar').should be_valid
+    end
+  end
+
+  describe '#proper_name' do
+    it 'is the file name without the .jar extension' do
+      bot = build(:bot, :jar_file_file_name => 'foo_bar_baz.jar')
+      bot.proper_name.should eq('foo_bar_baz')
     end
   end
 end
