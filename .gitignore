@@ -19,7 +19,7 @@
 *.swo
 
 # Ignore jar files
-*.jar
+/public/system/*
 
 # Ignore zeus files
 custom_plan.rb
