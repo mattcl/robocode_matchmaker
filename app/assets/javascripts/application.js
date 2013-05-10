@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require foundation
 //= require jquery-fileupload/basic
+//= require raphael-min
+//= require morris.min
 //= require_tree .
 
 $(document).foundation();

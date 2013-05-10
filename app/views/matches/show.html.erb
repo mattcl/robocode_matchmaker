@@ -1,6 +1,77 @@
 <div class="row">
-  <div class="large-11 large-centered column">
+  <div class="large-12 large-centered column">
     <h2>Match details</h2>
 
+    <div class="row">
+      <div class="large-6 column">
+        <table class="summary-table">
+          <tr>
+            <th>Match type:</th><td><%= @match.category.name %></td>
+          </tr>
+          <tr>
+            <th>Winner:</th><td><%= link_to @match.winner.bot.proper_name, bot_path(@match.winner.bot) %></td>
+          </tr>
+          <tr>
+            <th>Duration</th><td><%= distance_of_time_in_words(@match.started_at, @match.finished_at) %></td>
+          </tr>
+        </table>
+      </div>
+
+      <%= content_tag :div, '', :id => 'breakdown_chart', :class => 'large-6 column', :data => { :entries => @match.entries.map do |entry|
+        {
+          :proper_name => entry.bot.proper_name,
+          :bullet_damage => entry.bullet_damage,
+          :bullet_bonus => entry.bullet_bonus,
+          :ram_damage => entry.ram_damage,
+          :ram_bonus => entry.ram_bonus,
+          :survival => entry.survival,
+          :survival_bonus => entry.survival_bonus
+        }
+      end
+      } %>
+    </div>
+    <div class="row"><hr /></div>
+
+    <div class="row">
+      <table class="detail-table">
+        <h2 class="subheader">Detailed breakdown</h2>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Bot</th>
+            <th>Total Score</th>
+            <th>Bullet Dmg</th>
+            <th>Bullet Bonus</th>
+            <th>Ram Dmg</th>
+            <th>Ram Bonus</th>
+            <th>Survival</th>
+            <th>Survival Bonus</th>
+            <th>1st</th>
+            <th>2nd</th>
+            <th>3rd</th>
+          </tr>
+        </thead>
+        <% @match.entries.order('rank ASC').each do |entry| %>
+          <tr>
+            <td><%= entry.rank %></td>
+            <td><%= link_to entry.bot.proper_name, bot_path(entry.bot) %></td>
+            <td><%= entry.total_score %></td>
+            <td><%= entry.bullet_damage %></td>
+            <td><%= entry.bullet_bonus %></td>
+            <td><%= entry.ram_damage %></td>
+            <td><%= entry.ram_bonus %></td>
+            <td><%= entry.survival %></td>
+            <td><%= entry.survival_bonus %></td>
+            <td><%= entry.firsts %></td>
+            <td><%= entry.seconds %></td>
+            <td><%= entry.thirds %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="row">
+      <div class="large-4 column">
+      <div>
+    </div>
   </div>
 </div>

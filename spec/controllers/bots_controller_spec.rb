@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe BotsController, :type => :controller do
+describe BotsController do
   describe "GET index" do
     it 'populates an array of Bots' do
       bots = create_list(:bot, 2)

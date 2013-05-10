@@ -4,6 +4,6 @@ class MatchesController < ApplicationController
   end
 
   def show
-    @match = Match.includes(:category, :bots).find(params[:id])
+    @match = Match.includes(:category, :entries, :bots).find(params[:id])
   end
 end

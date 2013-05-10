@@ -1,3 +1,6 @@
+exit 0 if Rails.env == 'test'
+
+# create our default configurations
 config_one_on_one = BattleConfiguration.create({
   :description => 'A 1v1 battle',
   :num_bots => 2,
@@ -14,35 +17,123 @@ config_mele = BattleConfiguration.create({
   :height => 600
 })
 
+# create our default categories
 one_v_one = Category.create({:name => '1v1', :battle_configuration => config_one_on_one})
 mele = Category.create({:name => 'Mele', :battle_configuration => config_mele})
 
-sample_user = User.create(:username => 'sample', :password => 'test1234', :password_confirmation => 'test1234')
+exit 0 if Rails.env == 'production'
 
-sample_user.bots.create([
+# create default sample user
+sample_user = User.create(:username => 'sample', :email => 'sample@sample.com', :password => 'test1234', :password_confirmation => 'test1234')
+
+# create the bots for the sample user
+crazy = sample_user.bots.create({
+  :jar_file => File.new("#{Rails.root}/db/seed_bots/sample.Crazy_1.0.jar"),
+  :category_ids => [one_v_one.id, mele.id]
+})
+
+tracker = sample_user.bots.create({
+  :jar_file => File.new("#{Rails.root}/db/seed_bots/sample.Tracker_1.0.jar"),
+  :category_ids => [one_v_one.id, mele.id]
+})
+
+spinbot = sample_user.bots.create({
+    :jar_file => File.new("#{Rails.root}/db/seed_bots/sample.SpinBot_1.0.jar"),
+    :category_ids => [one_v_one.id, mele.id]
+})
+
+corners = sample_user.bots.create({
+    :jar_file => File.new("#{Rails.root}/db/seed_bots/sample.Corners_1.0.jar"),
+    :category_ids => [one_v_one.id, mele.id]
+})
+
+ramfire = sample_user.bots.create({
+  :jar_file => File.new("#{Rails.root}/db/seed_bots/sample.RamFire_1.0.jar"),
+  :category_ids => [one_v_one.id, mele.id]
+})
+
+# create a sample match
+match = Match.create({
+  :category => mele,
+  :started_at => 5.minutes.ago,
+  :finished_at => Time.now
+})
+
+# create some sample Entries
+entries = Entry.create([
   {
-    :jar_file => File.new("#{Rails.root}/db/seed_bots/sample.Crazy_1.0.jar")
-    :category_ids => [one_v_one, mele]
+    :bot_id         => spinbot.id,
+    :match_id       => match.id,
+    :rank           => 1,
+    :total_score    => 1577,
+    :survival       => 800,
+    :survival_bonus => 0,
+    :bullet_damage  => 661,
+    :bullet_bonus   => 86,
+    :ram_damage     => 31,
+    :ram_bonus      => 0,
+    :firsts         => 4,
+    :seconds        => 0,
+    :thirds         => 0
   },
   {
-    :jar_file => File.new("#{Rails.root}/db/seed_bots/sample.Tracker.0.jar")
-    :category_ids => [one_v_one, mele]
+    :bot_id         => tracker.id,
+    :match_id       => match.id,
+    :rank           => 2,
+    :total_score    => 1084,
+    :survival       => 450,
+    :survival_bonus => 0,
+    :bullet_damage  => 548,
+    :bullet_bonus   => 64,
+    :ram_damage     => 23,
+    :ram_bonus      => 0,
+    :firsts         => 0,
+    :seconds        => 1,
+    :thirds         => 2
   },
   {
-    :jar_file => File.new("#{Rails.root}/db/seed_bots/sample.SpinBot_1.0.jar")
-    :category_ids => [one_v_one, mele]
+    :bot_id         => ramfire.id,
+    :match_id       => match.id,
+    :rank           => 3,
+    :total_score    => 1060,
+    :survival       => 250,
+    :survival_bonus => 0,
+    :bullet_damage  => 543,
+    :bullet_bonus   => 0,
+    :ram_damage     => 187,
+    :ram_bonus      => 80,
+    :firsts         => 0,
+    :seconds        => 0,
+    :thirds         => 2
   },
   {
-    :jar_file => File.new("#{Rails.root}/db/seed_bots/sample.Corners_1.0.jar")
-    :category_ids => [one_v_one, mele]
+    :bot_id         => crazy.id,
+    :match_id       => match.id,
+    :rank           => 4,
+    :total_score    => 951,
+    :survival       => 750,
+    :survival_bonus => 0,
+    :bullet_damage  => 176,
+    :bullet_bonus   => 5,
+    :ram_damage     => 20,
+    :ram_bonus      => 0,
+    :firsts         => 1,
+    :seconds        => 3,
+    :thirds         => 1
   },
   {
-    :jar_file => File.new("#{Rails.root}/db/seed_bots/htf.ExampleBot_1.0.jar")
-    :category_ids => [one_v_one, mele]
+    :bot_id         => corners.id,
+    :match_id       => match.id,
+    :rank           => 5,
+    :total_score    => 842,
+    :survival       => 250,
+    :survival_bonus => 0,
+    :bullet_damage  => 536,
+    :bullet_bonus   => 52,
+    :ram_damage     => 4,
+    :ram_bonus      => 0,
+    :firsts         => 0,
+    :seconds        => 1,
+    :thirds         => 0
   }
 ])
-
-case Rails.env
-when 'development' do
-
-end
