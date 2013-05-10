@@ -6,13 +6,22 @@
       <div class="large-6 column">
         <table class="summary-table">
           <tr>
-            <th>Match type:</th><td><%= @match.category.name %></td>
-          </tr>
-          <tr>
             <th>Winner:</th><td><%= link_to @match.winner.bot.proper_name, bot_path(@match.winner.bot) %></td>
           </tr>
           <tr>
-            <th>Duration</th><td><%= distance_of_time_in_words(@match.started_at, @match.finished_at) %></td>
+            <th>Match type:</th><td><%= @match.category.name %></td>
+          </tr>
+          <tr>
+            <th>Number of rounds:</th><td><%= @match.category.battle_configuration.num_rounds %></td>
+          </tr>
+          <tr>
+            <th>Total bots:</th><td><%= @match.category.battle_configuration.num_bots %></td>
+          </tr>
+          <tr>
+            <th>Battlefield size:</th><td><%= "#{@match.category.battle_configuration.width}x#{@match.category.battle_configuration.height}" %></td>
+          </tr>
+          <tr>
+            <th>Duration:</th><td><%= distance_of_time_in_words(@match.started_at, @match.finished_at) %></td>
           </tr>
         </table>
       </div>
