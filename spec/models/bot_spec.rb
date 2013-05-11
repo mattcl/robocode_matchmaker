@@ -9,6 +9,30 @@ describe Bot do
   it { should validate_attachment_content_type(:jar_file).allowing('application/x-java-archive') }
   it { should validate_attachment_size(:jar_file).less_than(2.megabytes) }
 
+  describe '#averages' do
+    before(:each) do
+      @bot = create(:bot)
+    end
+
+    context 'when no matches completed' do
+      it { expect(@bot.averages).to be_nil }
+    end
+
+    context 'when at least one match completed' do
+      before(:each) do
+        create_list(:entry_with_results, 4, :bot => @bot)
+        @bot.reload
+      end
+
+      it { expect(@bot.averages).to_not be_nil }
+
+      it 'is a hash of the average score components from each match' do
+        averages = @bot.averages
+        averages[:bullet_damage].should eq(@bot.entries.collect(&:bullet_damage).reduce(:+) / @bot.entries.count)
+      end
+    end
+  end
+
   describe '#base_name' do
     it 'is set before validation' do
       bot = build(:bot, :base_name => 'replace', :jar_file_file_name => 'foo_bar_baz.jar')

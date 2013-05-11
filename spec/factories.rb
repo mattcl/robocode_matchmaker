@@ -84,8 +84,8 @@ FactoryGirl.define do
     association :match
 
     factory :entry_with_results do
-      bullet_bonus 100
-      bullet_damage 10
+      sequence(:bullet_bonus) { |n| n * 5 + 100 }
+      sequence(:bullet_damage) { |n| n * 4 + 10 }
       firsts 1
       seconds 2
       thirds 1

@@ -1,10 +1,16 @@
 // Place all the styles related to the matches controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+h3.graph-label {
+  text-align: center;
+}
 .summary-table {
   width: 100%;
 
   th {
     text-align: right;
   }
+}
+.match-winner {
+    font-weight: bold;
 }

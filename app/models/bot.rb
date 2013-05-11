@@ -17,6 +17,21 @@ class Bot < ActiveRecord::Base
 
   before_validation :assign_base_name
 
+  def averages
+    return nil if entries.empty?
+    averages = Hash.new { |h, k| h[k] = 0 }
+    count = entries.count
+    entries.each do |entry|
+      averages[:bullet_damage] += entry.bullet_damage
+      averages[:bullet_bonus] += entry.bullet_bonus
+      averages[:ram_damage] += entry.ram_damage
+      averages[:ram_bonus] += entry.ram_bonus
+      averages[:survival] += entry.survival
+      averages[:survival_bonus] += entry.survival_bonus
+    end
+    averages
+  end
+
   def proper_name
     self.jar_file_file_name.gsub(/\.jar$/, '')
   end

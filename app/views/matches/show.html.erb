@@ -80,7 +80,35 @@
     </div>
     <div class="row">
       <div class="large-4 column">
-      <div>
+        <h3 class="graph-label subheader">Bullet Damage</h3>
+        <%= content_tag :div, '', :id => 'bullet_damage_chart', :data => { :values => @match.entries.map do |entry|
+          {
+            :label => entry.bot.proper_name,
+            :value => entry.bullet_damage
+          }
+        end
+        } %>
+      </div>
+      <div class="large-4 column">
+        <h3 class="graph-label subheader">Ram Damage</h3>
+        <%= content_tag :div, '', :id => 'ram_damage_chart', :data => { :values => @match.entries.map do |entry|
+          {
+            :label => entry.bot.proper_name,
+            :value => entry.ram_damage
+          }
+        end
+        } %>
+      </div>
+      <div class="large-4 column">
+        <h3 class="graph-label subheader">Survival</h3>
+        <%= content_tag :div, '', :id => 'survival_chart', :data => { :values => @match.entries.map do |entry|
+          {
+            :label => entry.bot.proper_name,
+            :value => entry.survival
+          }
+        end
+        } %>
+      </div>
     </div>
   </div>
 </div>

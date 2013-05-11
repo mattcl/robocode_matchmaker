@@ -14,8 +14,10 @@
         <tr>
           <td><%= match.category.name %></td>
           <td>
-            <% match.bots.each do |bot| %>
-                <div><%= bot.proper_name %></div>
+            <% match.entries.each do |entry| %>
+              <div class="<%= 'match-winner' if entry.rank == 1%>">
+                <%= entry.bot.proper_name %>
+              </div>
             <% end %>
           </td>
           <td><%= match.status %></td>

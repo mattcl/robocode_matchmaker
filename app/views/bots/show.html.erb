@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
-<h2><%= @bot.proper_name %></h2>
-
-<%= link_to 'Back', bots_path %>
+<div class="row">
+  <div class="large-12 large-centered column">
+    <h2><%= @bot.proper_name %></h2>
+    <h4 class="subheader">Author: <%= link_to @bot.user.username, '#' %></h2>
+    <%= link_to 'Back', bots_path %>
+  </div>
+</div>

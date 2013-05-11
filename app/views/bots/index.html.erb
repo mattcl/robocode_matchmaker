@@ -24,7 +24,7 @@
         <td><%= bot.jar_file.original_filename.gsub(/\.jar/, '') %></td>
         <td><%= bot.user.username %></td>
         <td><%= bot.categories.collect(&:name).sort.join(', ') %></td>
-        <td><%= bot.entries.count %></td>
+        <td><%= bot.entries.where(:rank => 1).count %></td>
         <td><%= bot.entries.count %></td>
         <td><%= link_to 'Stats', bot %></td>
         <td><%= link_to 'Download', bot.jar_file.url %></td>
