@@ -12,6 +12,21 @@ describe Entry do
     bot.reload.entries_count.should eq(1)
   end
 
+  context 'scopes' do
+    before(:each) do
+      @started = create(:entry)
+      @finished = create(:entry_with_results)
+    end
+
+    describe 'finished' do
+      it 'returns only Entries with rank == nil' do
+        entries = Entry.finished
+        entries.should have(1).entries
+        entries.should include(@finished)
+      end
+    end
+  end
+
   context 'on update' do
     before(:each) do
       @entry = create(:entry_with_results)

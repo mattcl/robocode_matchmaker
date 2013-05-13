@@ -1,0 +1,39 @@
+<table class="detail-table">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Winner</th>
+      <th>Rank</th>
+      <th>Total Score</th>
+      <th>Bullet Dmg</th>
+      <th>Bullet Bonus</th>
+      <th>Ram Dmg</th>
+      <th>Ram Bonus</th>
+      <th>Survival</th>
+      <th>Survival Bonus</th>
+      <th>1st</th>
+      <th>2nd</th>
+      <th>3rd</th>
+      <th></th>
+    </tr>
+  </thead>
+  <% entries.each do |entry| %>
+    <tr>
+      <td><%= entry.match.category.name %></td>
+      <% winner = entry.match.winner.bot %>
+      <td><%= link_to winner.proper_name, bot_path(winner) %></td>
+      <td><%= entry.rank %></td>
+      <td><%= entry.total_score %></td>
+      <td><%= entry.bullet_damage %></td>
+      <td><%= entry.bullet_bonus %></td>
+      <td><%= entry.ram_damage %></td>
+      <td><%= entry.ram_bonus %></td>
+      <td><%= entry.survival %></td>
+      <td><%= entry.survival_bonus %></td>
+      <td><%= entry.firsts %></td>
+      <td><%= entry.seconds %></td>
+      <td><%= entry.thirds %></td>
+      <td><%= link_to 'more', match_path(entry.match_id) %></td>
+    </tr>
+  <% end %>
+</table>

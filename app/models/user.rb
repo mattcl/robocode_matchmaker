@@ -13,4 +13,16 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
 
   has_many :bots
+
+  def matches_entered
+    @matches_entered ||= bots.collect { |bot| bot.entries.count }.reduce(:+)
+    return 0 if @matches_entered.nil?
+    @matches_entered
+  end
+
+  def matches_won
+    @matches_won ||= bots.collect { |bot| bot.entries.where(:rank => 1).count }.reduce(:+)
+    return 0 if @matches_won.nil?
+    @matches_won
+  end
 end

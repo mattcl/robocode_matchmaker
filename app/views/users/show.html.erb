@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="large-12 centered column">
+    <h1>User: <%= @user.username %></h1>
+    <div class="row">
+      <div class="large-3 column">
+        <table class="summary-table">
+          <tr>
+            <th>Number of bots</th>
+            <td><%= @user.bots.count %></td>
+          </tr>
+          <tr>
+            <th>Matches entered:</th>
+            <td><%= @user.matches_entered %></td>
+          </tr>
+          <tr>
+            <th>Matches won:</th>
+            <td><%= @user.matches_won %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <h2 class="subheader">Bots</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Bot Types</th>
+          <th>Won</th>
+          <th>Played</th>
+          <th></th>
+        </tr>
+      </thead>
+      <% @user.bots.each do |bot| %>
+        <tr>
+          <td><%= link_to bot.jar_file.original_filename.gsub(/\.jar/, ''), bot_path(bot) %></td>
+          <td><%= bot.categories.collect(&:name).sort.join(', ') %></td>
+          <td><%= bot.entries.where(:rank => 1).count %></td>
+          <td><%= bot.entries.count %></td>
+          <td><%= link_to 'Download', bot.jar_file.url %></td>
+        </tr>
+      <% end -%>
+    </table>
+  </div>
+</div>

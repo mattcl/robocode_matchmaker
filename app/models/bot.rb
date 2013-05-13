@@ -1,7 +1,9 @@
 class Bot < ActiveRecord::Base
   attr_accessible :user_id, :base_name, :jar_file, :category_ids
 
-  has_attached_file :jar_file
+  has_attached_file :jar_file,
+    :path => ":rails_root/public/system/bots/robots/:filename",
+    :url => "/system/bots/robots/:filename"
 
   belongs_to :user
   has_and_belongs_to_many :categories
@@ -20,8 +22,9 @@ class Bot < ActiveRecord::Base
   def averages
     return nil if entries.empty?
     averages = Hash.new { |h, k| h[k] = 0 }
-    count = entries.count
-    entries.each do |entry|
+    finished_entries = entries.finished
+    count = finished_entries.count
+    finished_entries.each do |entry|
       averages[:bullet_damage] += entry.bullet_damage
       averages[:bullet_bonus] += entry.bullet_bonus
       averages[:ram_damage] += entry.ram_damage
@@ -29,6 +32,11 @@ class Bot < ActiveRecord::Base
       averages[:survival] += entry.survival
       averages[:survival_bonus] += entry.survival_bonus
     end
+
+    averages.each do |key, value|
+      averages[key] = value / count
+    end
+
     averages
   end
 

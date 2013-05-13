@@ -44,7 +44,7 @@ describe Api::MatchesController do
     context 'when there are no pending Matches' do
       it 'creates a new Match from the Category determined by Category.best_for_next_match' do
         category = create(:category, :matches_count => 3)
-        create(:bot, :categories => [category])
+        create_list(:bot, 2, :categories => [category])
 
         Category.should_receive(:best_for_next_match).and_return(category)
 

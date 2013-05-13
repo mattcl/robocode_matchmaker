@@ -13,3 +13,11 @@
  *= require morris
  *= require_tree .
  */
+.graph-label {
+  text-align: center;
+}
+
+a.download-button {
+  width: 100%;
+  margin-bottom: 0;
+}

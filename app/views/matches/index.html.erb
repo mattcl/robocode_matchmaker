@@ -21,7 +21,7 @@
             <% end %>
           </td>
           <td><%= match.status %></td>
-          <td><%= link_to 'details', match_path(match) %></td>
+          <td><%= link_to('details', match_path(match)) unless match.finished_at.nil? %></td>
         </tr>
       <% end %>
     </table>

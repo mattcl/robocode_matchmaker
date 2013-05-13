@@ -47,21 +47,29 @@ describe Match do
       Match.create_for(category)
     end
 
-    context 'when there are Bots' do
+    context 'when there is exactly 1 Bot' do
       before(:each) do
         create(:bot, :categories => [category])
+      end
+
+      it { expect(Match.create_for(category)).to be_nil }
+    end
+
+    context 'when there are at least 2 Bots' do
+      before(:each) do
+        create_list(:bot, 2, :categories => [category])
       end
 
       it 'creates a new Match for the given Category' do
         match = Match.create_for(category)
         match.should be_a(Match)
-        match.should have(1).entries
+        match.should have(2).entries
       end
 
       it 'only creates Entries from Bots of the specified Category' do
         create(:bot) # a bot in a different category
         match = Match.create_for(category)
-        match.should have(1).entries
+        match.should have(2).entries
       end
     end
 
@@ -71,13 +79,13 @@ describe Match do
 
     context 'when there are fewer Bots for the Category than we need' do
       it 'creates as many Entries as possible' do
-        create(:bot, :categories => [category])
+        create_list(:bot, 2, :categories => [category])
         match = Match.create_for(category)
-        match.should have(1).entries
+        match.should have(2).entries
 
         create(:bot, :categories => [category])
         match = Match.create_for(category)
-        match.should have(2).entries
+        match.should have(3).entries
       end
     end
 
@@ -96,14 +104,33 @@ describe Match do
         # by creating bots in this way we can ensure that the list would need to
         # be sorted in order to return the desired result
 
-        create(:bot_with_entries, :categories => [category], :entries_count => 3)
-        bot1 = create(:bot_with_entries, :categories => [category], :entries_count => 1)
-        create(:bot_with_entries, :categories => [category], :entries_count => 4)
+        create(:bot_with_entries, :categories => [category], :entry_category => category, :entries_count => 3)
+        bot1 = create(:bot_with_entries, :categories => [category], :entry_category => category, :entries_count => 1)
+        create(:bot_with_entries, :categories => [category], :entry_category => category, :entries_count => 4)
         bot2 = create(:bot, :categories => [category])
 
         match = Match.create_for(category)
         match.should have(2).entries
         match.bots.should include(bot1, bot2)
+      end
+
+      it 'only considers the Entries for the specified Category when sorting the list' do
+        config = create(:battle_configuration, :num_bots => 2)
+        category = create(:category, :battle_configuration => config)
+        wrong_category = create(:category)
+
+        bot1 = create(:bot_with_entries, :categories => [category], :entry_category => category, :entries_count => 3)
+        bot2 = create(:bot_with_entries, :categories => [category], :entry_category => wrong_category, :entries_count => 5)
+        create(:bot_with_entries, :categories => [category], :entry_category => category, :entries_count => 4)
+        bot3 = create(:bot, :categories => [category])
+
+        # since bot2's entries are of the wrong category, we would expect its
+        # category specific count to be 0, the same as the brand-new bot3
+        # this is why it it selected even though its total entry count is
+        # greater than the others
+        match = Match.create_for(category)
+        match.should have(2).entries
+        match.bots.should include(bot2, bot3)
       end
     end
   end

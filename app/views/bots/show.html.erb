@@ -1,7 +1,49 @@
 <div class="row">
   <div class="large-12 large-centered column">
     <h2><%= @bot.proper_name %></h2>
-    <h4 class="subheader">Author: <%= link_to @bot.user.username, '#' %></h2>
+    <h4 class="subheader">Author: <%= link_to @bot.user.username, user_path(@bot.user) %></h2>
+  </div>
+</div>
+<div class="row">
+  <div class="large-4 column">
+    <table>
+      <tr>
+        <th>Categories:</th>
+        <td><%= @bot.categories.collect(&:name).sort.join(', ') %></td>
+      </tr>
+      <tr>
+        <th>Matches played:</th>
+        <td><%= @bot.entries.count %></td>
+      </tr>
+      <tr>
+        <th>Matches won:</th>
+        <td><%= @bot.entries.where(:rank => 1).count %></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <%= link_to 'Download', @bot.jar_file.url, :class => 'download-button small button' %>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="large-8 column">
+    <h4 class="graph-label subheader">Average Points Per Match</h4>
+    <%= content_tag :div, '', :id => 'averages_graph', :data => { :averages => @bot.averages } %>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 column">
+    <hr />
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 column">
+    <h2 class="subheader">Past Completed Matches</h2>
+    <%= render :partial => 'bots/entries_table', :locals => { :entries => @bot.entries.finished.order('match_id DESC') } %>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 large-centered column">
     <%= link_to 'Back', bots_path %>
   </div>
 </div>

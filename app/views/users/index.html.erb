@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="large-10 centered column">
+    <h1>Users</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Num Bots</th>
+          <th>Total Matches Played</th>
+          <th>Total Wins</th>
+        </tr>
+      </thead>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.username, user_path(user) %></td>
+          <td><%= user.bots.count %></td>
+          <td><%= user.matches_entered %></td>
+          <td><%= user.matches_won %></td>
+        </tr>
+      <% end -%>
+    </table>
+  </div>
+</div>

@@ -21,14 +21,19 @@ describe Bot do
     context 'when at least one match completed' do
       before(:each) do
         create_list(:entry_with_results, 4, :bot => @bot)
+        create(:entry, :bot => @bot) # add one entry that isn't completed
         @bot.reload
       end
 
       it { expect(@bot.averages).to_not be_nil }
 
-      it 'is a hash of the average score components from each match' do
+      it 'is a hash of the average score components from each completed match' do
         averages = @bot.averages
-        averages[:bullet_damage].should eq(@bot.entries.collect(&:bullet_damage).reduce(:+) / @bot.entries.count)
+        averages.keys.should include(:bullet_damage, :bullet_bonus, :ram_damage, :ram_bonus, :survival, :survival_bonus)
+
+        # two checks should be sufficient here
+        averages[:bullet_damage].should eq(@bot.entries.finished.collect(&:bullet_damage).reduce(:+) / @bot.entries.finished.count)
+        averages[:bullet_bonus].should eq(@bot.entries.finished.collect(&:bullet_bonus).reduce(:+) / @bot.entries.finished.count)
       end
     end
   end

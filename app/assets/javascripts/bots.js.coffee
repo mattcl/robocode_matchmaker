@@ -12,3 +12,16 @@ jQuery ->
   $('#upload_cancel_button').on 'click', ->
     $('#upload_form_modal').foundation('reveal', 'close')
     return false
+
+  if $('#averages_graph').length > 0
+    refined_averages = for key, value of $('#averages_graph').data('averages')
+      { label: key, value: value }
+    Morris.Bar
+      element: 'averages_graph'
+      data: refined_averages
+      xkey: 'label'
+      ykeys: ['value']
+      labels: ['Points']
+      hideHover: 'auto'
+      xLabelAngle: 30
+

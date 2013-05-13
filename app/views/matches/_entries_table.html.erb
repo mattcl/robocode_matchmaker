@@ -1,0 +1,34 @@
+<table class="detail-table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Bot</th>
+      <th>Total Score</th>
+      <th>Bullet Dmg</th>
+      <th>Bullet Bonus</th>
+      <th>Ram Dmg</th>
+      <th>Ram Bonus</th>
+      <th>Survival</th>
+      <th>Survival Bonus</th>
+      <th>1st</th>
+      <th>2nd</th>
+      <th>3rd</th>
+    </tr>
+  </thead>
+  <% entries.each do |entry| %>
+    <tr>
+      <td><%= entry.rank %></td>
+      <td><%= link_to entry.bot.proper_name, bot_path(entry.bot) %></td>
+      <td><%= entry.total_score %></td>
+      <td><%= entry.bullet_damage %></td>
+      <td><%= entry.bullet_bonus %></td>
+      <td><%= entry.ram_damage %></td>
+      <td><%= entry.ram_bonus %></td>
+      <td><%= entry.survival %></td>
+      <td><%= entry.survival_bonus %></td>
+      <td><%= entry.firsts %></td>
+      <td><%= entry.seconds %></td>
+      <td><%= entry.thirds %></td>
+    </tr>
+  <% end %>
+</table>

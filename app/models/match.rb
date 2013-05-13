@@ -17,15 +17,17 @@ class Match < ActiveRecord::Base
     configuration = category.battle_configuration
     bots = category.unique_bots.to_a
 
-    return nil if bots.empty?
+    return nil if bots.empty? or bots.count < 2
 
     if bots.count > configuration.num_bots
       # shuffle the array (this will help make it fairer for bots
       # that have the same number of entries
       bots = bots.shuffle
 
-      # sort based on the number of entries
-      bots = bots.sort { |a, b| a.entries.count <=> b.entries.count }
+      # sort based on the number of entries for the given category
+      bots = bots.sort { |a, b| a.matches.where(:category_id => category).count <=> b.matches.where(:category_id => category).count }
+
+      # take as many as we can
       bots = bots.slice(0, configuration.num_bots)
     end
 

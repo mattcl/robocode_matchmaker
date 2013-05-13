@@ -8,4 +8,6 @@ class Entry < ActiveRecord::Base
   validates :bullet_bonus, :bullet_damage, :firsts, :ram_bonus, :ram_damage,
     :rank, :seconds, :survival, :survival_bonus, :thirds, :total_score,
     :numericality => {:only_integer => true}, :on => :update
+
+  scope :finished, -> { where('rank IS NOT NULL') }
 end

@@ -27,10 +27,15 @@ FactoryGirl.define do
     factory :bot_with_entries do
       ignore do
         entries_count 5
+        entry_category nil
       end
 
       after(:create) do |bot, evaluator|
-        FactoryGirl.create_list(:match, evaluator.entries_count, :bots => [bot])
+        if evaluator.entry_category.nil?
+          FactoryGirl.create_list(:match, evaluator.entries_count, :bots => [bot])
+        else
+          FactoryGirl.create_list(:match, evaluator.entries_count, :category => evaluator.entry_category, :bots => [bot])
+        end
       end
     end
 

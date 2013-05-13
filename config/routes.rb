@@ -6,6 +6,8 @@ RobocodeMatchmaker::Application.routes.draw do
   get "home/index"
 
   devise_for :users
+  get 'users' => 'users#index'
+  get 'users/:id' => 'users#show', :as => 'user'
 
   namespace :api, :defaults => { :format => 'json' } do
     resources :matches
