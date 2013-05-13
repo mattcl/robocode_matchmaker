@@ -20,7 +20,7 @@
 
     <% @bots.each do |bot| %>
       <tr>
-        <td><%= link_to bot.jar_file.original_filename.gsub(/\.jar/, ''), bot_path(bot) %></td>
+        <td><%= link_to bot.proper_name, bot_path(bot) %></td>
         <td><%= link_to bot.user.username, user_path(bot.user) %></td>
         <td><%= bot.categories.collect(&:name).sort.join(', ') %></td>
         <td><%= bot.entries.where(:rank => 1).count %></td>

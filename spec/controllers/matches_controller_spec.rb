@@ -7,10 +7,10 @@ describe MatchesController do
       @matches = create_list(:match, 2)
     end
 
-    it 'populates an array of Matches' do
+    it 'populates an array of Matches, with the latest Matches first' do
       get 'index'
       response.should be_success
-      assigns(:matches).should eq(@matches)
+      assigns(:matches).should eq(@matches.reverse)
     end
   end
 

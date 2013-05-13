@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
   def index
-    @matches = Match.all
+    @matches = Match.order('id DESC')
   end
 
   def show
