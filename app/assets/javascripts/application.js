@@ -16,6 +16,8 @@
 //= require jquery-fileupload/basic
 //= require raphael-min
 //= require morris.min
+//= require rainbow.min
+//= require language/java
 //= require_tree .
 
 $(document).foundation();

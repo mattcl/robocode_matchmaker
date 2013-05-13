@@ -1,9 +1,14 @@
 RobocodeMatchmaker::Application.routes.draw do
 
+  get "learn/index"
+
+  get "learn/first_bot"
+
   resources :matches
   resources :bots
 
   get "home/index"
+  get "home/first_bot"
 
   devise_for :users
   get 'users' => 'users#index'
