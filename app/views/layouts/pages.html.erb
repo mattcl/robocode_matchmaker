@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" contains="width-device-width, initial-scale=1.0" />
+    <title>RobocodeMatchmaker</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/site_nav' %>
+    <div class="row">
+      <div class="large-11 centered column">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

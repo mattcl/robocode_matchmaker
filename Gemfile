@@ -42,6 +42,8 @@ gem "paperclip"
 gem "jbuilder"
 gem "rabl"
 gem "oj"
+gem "redcarpet"
+gem "high_voltage"
 
 group :development, :test do
   gem "rspec-rails", "> 2.10.0"
