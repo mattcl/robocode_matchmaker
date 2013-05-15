@@ -41,7 +41,7 @@ class Match < ActiveRecord::Base
   end
 
   def winner
-    nil if finished_at.nil?
+    return nil if finished_at.nil?
     @winner ||= entries.where(:rank => 1).first
   end
 end

@@ -26,5 +26,18 @@ degrees per turn. The faster you are moving, the slower you turn.
 
 **max radar rotation:** 45 degrees per turn + current gun rotation rate
 
-Angles in robocode
-------------------
+Bullets
+-------
+
+In robocode, you can shoot a bullet with a power from 0.1 to 3.0. Bullets with
+more power travel slower but do more damage. Likewise, bullets with less power
+travel faster but do less damage. Bullet damage is computed with the following
+formula:
+
+**bullet damage** = 4 * power
+
+if power > 1, add an additional 2 * (power - 1)
+
+> If you hit an enemy with a bullet you *gain* power equal to 3 * bullet power.
+> This means that you can actually end up with more power than you started with,
+> if you are accurate enough.

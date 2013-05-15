@@ -22,6 +22,7 @@ class Bot < ActiveRecord::Base
   def averages
     return nil if entries.empty?
     averages = Hash.new { |h, k| h[k] = 0 }
+
     finished_entries = entries.finished
     count = finished_entries.count
     finished_entries.each do |entry|
