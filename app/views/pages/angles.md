@@ -9,13 +9,13 @@ Bearings
 In robocode, the **bearing** is the amount you have to turn to be facing the
 target. The absolute bearing is the amount you would have to turn **if you were
 facing north**. How do you compute this value? Well, whenever your radar scans
-and enemy robot, it triggers a call to onScannedRobot(), passing a
-ScannedRobotEvent which has information about the scanned robot. You can extract
-information from the ScannedRobotEvent to compute the bearing and absolute
-bearing.
+and enemy robot, it triggers a call to `onScannedRobot`, passing a
+`ScannedRobotEvent` which has information about the scanned robot. You can
+extract information from the `ScannedRobotEvent` to compute the bearing and
+absolute bearing.
 
 Below is an example of computing the bearing and absolute
-bearing in the onScannedRobot function:
+bearing in the `onScannedRobot` function:
 
 ```java
 public void onScannedRobot(ScannedRobotEvent e) {
@@ -25,11 +25,11 @@ public void onScannedRobot(ScannedRobotEvent e) {
 
 ```
 
-> What is Utils.normalAbsoluteAngleDegrees(...)? Well, we want to limit the
+> What is `Utils.normalAbsoluteAngleDegrees`? Well, we want to limit the
 > absolute bearing to be between 0 and 360 degrees. The utility function ensures
 > that this is the case. Remember that 390 degees is the same as 30 degrees,
 > since there are 360 degrees in a full circle. There is a
-> Utils.normalRelativeAngleDegrees(...) that takes an angle and makes sure that
+> `Utils.normalRelativeAngleDegrees` that takes an angle and makes sure that
 > it lies between -180 and 180 degrees.
 
 The **bearing** is important in moving your robot relative to the scanned robot.
@@ -48,7 +48,8 @@ public void onScannedRobot(ScannedRobotEvent e) {
 
 The **absolute bearing** is important in moving your gun (and radar). It
 provides a constant reference point. Remember that your gun isn't always facing
-the same direciion that your robot is facing! The following code shows you how to make sure your gun is facing the scanned enemy.
+the same direciion that your robot is facing! The following code shows you how
+to make sure your gun is facing the scanned enemy.
 
 ```java
 public void onScannedRobot(ScannedRobotEvent e) {

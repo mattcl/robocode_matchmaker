@@ -42,4 +42,8 @@ if power > 1, add an additional 2 * (power - 1)
 > This means that you can actually end up with more power than you started with,
 > if you are accurate enough.
 
+Walls
+-----
 
+If your robot is an `AdvancedRobot`, then it will take damager when it runs into
+a wall.

@@ -1,8 +1,29 @@
 Writing your first advanced bot
 ===============================
 
+Moving components independently
+-------------------------------
+
+Having our robot, gun and radar tied together limits what we can do. We can't,
+for instance, shoot at someone and be moving in a different direction. In order
+to make it possible to turn the radar, gun and robot independently, we can add
+the following lines at the start of our `run()` method.
+
+```java
+public void run() {
+    setAdjustGunForRobotTurn(true);
+    setAdjustRadarForGunTurn(true);
+    setAdjustRadarForRobotTurn(true);
+    ...
+}
+```
+
+While this does allow us to make better use of our limited movements per turn,
+it does require that we explicitly turn our gun and radar in addition to turning
+our robot.
+
 The run loop
--------------
+------------
 
 In very basic robots, most of the movement logic is handled by the "run" loop.
 This is a sequence of actions that are repeated over and over again. The robot's
@@ -10,6 +31,7 @@ behavior is fixed by the steps in the loop.
 
 ```java
 public void run() {
+    ...
     while (true) {
         ...
         setTurnLeft(20);
@@ -21,7 +43,7 @@ public void run() {
 ```
 
 This robot will turn in a circle constantly, as it is always wanting to turn
-left 20 degrees and move ahead 100 units. When we can setTurnLeft, setAhead,
+left 20 degrees and move ahead 100 units. When we can `setTurnLeft`, `setAhead`,
 etc., we are telling the robot that, at the end of your turn, I want you to
 attempt to do these things. Take care when calling "set" methods!
 
@@ -50,7 +72,7 @@ direction of its turn has moments of predictable movement. It is much better to
 have a robot that reacts to its surroundings.
 
 Reactionary programming
-----------------------
+-----------------------
 
 In real life, you react to changes in in your surroundings. When you're walking
 down the sidewalk and you notice someone coming in the opposite direction, you
@@ -60,8 +82,8 @@ them as well. We tend to think of code that reacts to inputs as being
 reacitonary. Good robots will react to their surroundings as well.
 
 In Robocode, a robot's eyes are its radar. Whenever the radar crosses another
-robot, it triggers a ScannedRobotEvent, which triggers a call to your
-onScannedRobot function.
+robot, it triggers a `ScannedRobotEvent`, which triggers a call to your
+`onScannedRobot` function.
 
 ```java
 public void onScannedRobot(ScannedRobotEvent e) {
@@ -121,8 +143,8 @@ simply spinning our radar around, it might take us up to 9 turns to scan the
 other robot again.
 
 Most radar movements are made up of two components: the "primary movement" and
-the "backup movement." The backup movement lives in the run() loop, and usually
-consists of spinning our radar if our radar has stopped turning:
+the "backup movement." The backup movement lives in the `run()` loop, and
+usually consists of spinning our radar if our radar has stopped turning:
 
 ```java
 public void run() {
@@ -137,18 +159,20 @@ public void run() {
 ```
 
 Basically, if our radar ever stops turning, tell set it to turn right "infinity"
-degrees. Remember that any furture calls to setTurnRadarRight (or left) will
+degrees. Remember that any furture calls to `setTurnRadarRight` (or left) will
 overwrite the previous value, so we don't have to worry about having to wait for
 the radar to finish turning before we can move it in a different way.
 
-### Mele radar
+### Mele radar ###
+
 
 When facing many enemies, a spinning radar is sufficient. In this case, our
 radar movement is just the backup component (spin your radar around infinitely).
 There are more complex mele radars that involve moving to the last scanned enemy
 first, but that's more advanced than you need to worry about right now.
 
-### "Locking" radar
+### "Locking" radar ###
+
 
 In 1v1 battles (and sometimes even in mele) the more frequently we can scan the
 enemy robot, the better (since we can react more frequently). One way to
