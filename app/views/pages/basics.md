@@ -41,3 +41,5 @@ if power > 1, add an additional 2 * (power - 1)
 > If you hit an enemy with a bullet you *gain* power equal to 3 * bullet power.
 > This means that you can actually end up with more power than you started with,
 > if you are accurate enough.
+
+
