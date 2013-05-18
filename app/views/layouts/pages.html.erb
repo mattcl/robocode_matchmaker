@@ -11,8 +11,13 @@
   <body>
     <%= render 'layouts/site_nav' %>
     <div class="row">
-      <div class="large-11 centered column">
+      <div class="large-10 push-2 column">
         <%= yield %>
+      </div>
+      <div class="large-2 pull-10 column">
+        <ul class="side-nav">
+          <%= render :partial => 'pages/pages_nav' %>
+        </ul>
       </div>
     </div>
   </body>

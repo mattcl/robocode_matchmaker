@@ -13,10 +13,7 @@
       <li><%= link_to('Users', users_path) %></li>
       <li class="has-dropdown"><%= link_to('Learn', '#') %>
         <ul class="dropdown">
-          <li><%= link_to('Basics', '/pages/basics') %></li>
-          <li><%= link_to('Angles', '/pages/angles') %></li>
-          <li><%= link_to('BasicBot', '/pages/basic_bot') %></li>
-          <li><%= link_to('Advanced', '/pages/advanced') %></li>
+          <%= render :partial => 'pages/pages_nav' %>
         </ul>
       </li>
     </ul>
