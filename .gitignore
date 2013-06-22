@@ -24,3 +24,6 @@
 # Ignore zeus files
 custom_plan.rb
 zeus.json
+
+# Ignore tags file
+tags
