@@ -18,8 +18,14 @@ config_mele = BattleConfiguration.create({
 })
 
 # create our default categories
-one_v_one = Category.create({:name => '1v1', :battle_configuration => config_one_on_one})
-mele = Category.create({:name => 'Mele', :battle_configuration => config_mele})
+one_v_one = Category.create({:name => 'Beginner 1v1', :battle_configuration => config_one_on_one})
+mele = Category.create({:name => 'Beginner Mele', :battle_configuration => config_mele})
+
+Category.create({:name => 'Intermediate 1v1', :battle_configuration => config_one_on_one})
+Category.create({:name => 'Intermediate Mele', :battle_configuration => config_mele})
+
+Category.create({:name => 'Advanced 1v1', :battle_configuration => config_one_on_one})
+Category.create({:name => 'Advanced Mele', :battle_configuration => config_mele})
 
 exit 0 if Rails.env == 'production'
 
