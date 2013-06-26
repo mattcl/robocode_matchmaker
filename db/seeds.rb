@@ -29,43 +29,43 @@ Category.create({:name => 'Advanced Mele', :battle_configuration => config_mele}
 
 exit 0 if Rails.env == 'production'
 
-# create default sample user
-sample_user = User.create(:username => 'sample', :email => 'sample@sample.com', :password => 'test1234', :password_confirmation => 'test1234')
+# create default htf user
+htf_user = User.create(:username => 'htf', :email => 'htf@htf.com', :password => 'test1234', :password_confirmation => 'test1234')
 
-# create the bots for the sample user
-crazy = sample_user.bots.create({
-  :jar_file => File.new("#{Rails.root}/db/seed_bots/sample.Crazy_1.0.jar"),
+# create the bots for the htf user
+crazy = htf_user.bots.create({
+  :jar_file => File.new("#{Rails.root}/db/seed_bots/htf.Crazy_1.0.jar"),
   :category_ids => [one_v_one.id, mele.id]
 })
 
-tracker = sample_user.bots.create({
-  :jar_file => File.new("#{Rails.root}/db/seed_bots/sample.Tracker_1.0.jar"),
+tracker = htf_user.bots.create({
+  :jar_file => File.new("#{Rails.root}/db/seed_bots/htf.Tracker_1.0.jar"),
   :category_ids => [one_v_one.id, mele.id]
 })
 
-spinbot = sample_user.bots.create({
-    :jar_file => File.new("#{Rails.root}/db/seed_bots/sample.SpinBot_1.0.jar"),
+spinbot = htf_user.bots.create({
+    :jar_file => File.new("#{Rails.root}/db/seed_bots/htf.SpinBot_1.0.jar"),
     :category_ids => [one_v_one.id, mele.id]
 })
 
-corners = sample_user.bots.create({
-    :jar_file => File.new("#{Rails.root}/db/seed_bots/sample.Corners_1.0.jar"),
+corners = htf_user.bots.create({
+    :jar_file => File.new("#{Rails.root}/db/seed_bots/htf.Corners_1.0.jar"),
     :category_ids => [one_v_one.id, mele.id]
 })
 
-ramfire = sample_user.bots.create({
-  :jar_file => File.new("#{Rails.root}/db/seed_bots/sample.RamFire_1.0.jar"),
+ramfire = htf_user.bots.create({
+  :jar_file => File.new("#{Rails.root}/db/seed_bots/htf.RamFire_1.0.jar"),
   :category_ids => [one_v_one.id, mele.id]
 })
 
-# create a sample match
+# create a htf match
 match = Match.create({
   :category => mele,
   :started_at => 5.minutes.ago,
   :finished_at => Time.now
 })
 
-# create some sample Entries
+# create some htf Entries
 entries = Entry.create([
   {
     :bot_id         => spinbot.id,
