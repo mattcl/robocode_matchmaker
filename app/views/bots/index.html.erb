@@ -7,6 +7,12 @@
       <%= link_to 'Login or register to upload', new_user_session_path, :class => 'button small' %>
     <% end %>
     <table>
+    <% @grouped_bots.each do |level, bots| %>
+      <thead>
+        <tr>
+          <th colspan="6"><h3><%= level %></h3></th>
+        </tr>
+      </thead>
       <thead>
         <tr>
           <th>Name</th>
@@ -18,15 +24,16 @@
         </tr>
       </thead>
 
-    <% @bots.each do |bot| %>
-      <tr>
-        <td><%= link_to bot.proper_name, bot_path(bot) %></td>
-        <td><%= link_to bot.user.username, user_path(bot.user) %></td>
-        <td><%= bot.categories.collect(&:name).sort.join(', ') %></td>
-        <td><%= bot.entries.where(:rank => 1).count %></td>
-        <td><%= bot.entries.count %></td>
-        <td><%= link_to 'Download', bot.jar_file.url %></td>
-      </tr>
+      <% bots.each do |bot| %>
+        <tr>
+          <td><%= link_to bot.proper_name, bot_path(bot) %></td>
+          <td><%= link_to bot.user.username, user_path(bot.user) %></td>
+          <td><%= bot.categories.collect(&:name).sort.join(', ') %></td>
+          <td><%= bot.entries.where(:rank => 1).count %></td>
+          <td><%= bot.entries.count %></td>
+          <td><%= link_to 'Download', bot.jar_file.url %></td>
+        </tr>
+      <% end %>
     <% end %>
     </table>
   </div>

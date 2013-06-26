@@ -29,13 +29,16 @@ mele      = Category.create({:name => 'Mele', :battle_configuration => config_me
 i_one_v_one = Category.create({:name => '1v1', :battle_configuration  => config_one_on_one, :skill_level => intermediate})
 i_mele      = Category.create({:name => 'Mele', :battle_configuration => config_mele, :skill_level       => intermediate})
 
-Category.create({:name => '1v1', :battle_configuration => config_one_on_one, :skill_level => advanced})
-Category.create({:name => 'Mele', :battle_configuration => config_mele, :skill_level => advanced})
+a_one_v_one = Category.create({:name => '1v1', :battle_configuration => config_one_on_one, :skill_level => advanced})
+a_mele      = Category.create({:name => 'Mele', :battle_configuration => config_mele, :skill_level => advanced})
 
 exit 0 if Rails.env == 'production'
 
 # create default htf user
 htf_user = User.create(:username => 'htf', :email => 'htf@htf.com', :password => 'test1234', :password_confirmation => 'test1234')
+
+# rampancy
+rampancy = User.create(:username => 'rampancy', :email => 'mchunlum@gmail.com', :password => 'test1234', :password_confirmation => 'test1234')
 
 # create the bots for the htf user
 crazy = htf_user.bots.create({
@@ -63,9 +66,36 @@ ramfire = htf_user.bots.create({
   :category_ids => [one_v_one.id, mele.id]
 })
 
-wall = htf_user.bots.create({
+# intermediate bots
+walls = htf_user.bots.create({
   :jar_file => File.new("#{Rails.root}/db/seed_bots/htf.Walls_1.0.jar"),
   :category_ids => [i_one_v_one.id, i_mele.id]
+})
+
+# advanced bots
+rampancy.bots.create({
+  :jar_file => File.new("#{Rails.root}/db/seed_bots/rampancy.micro.Swingline_1.0.jar"),
+  :category_ids => [a_one_v_one.id]
+})
+
+rampancy.bots.create({
+  :jar_file => File.new("#{Rails.root}/db/seed_bots/rampancy.micro.Epiphron_1.0.jar"),
+  :category_ids => [a_one_v_one.id]
+})
+
+rampancy.bots.create({
+  :jar_file => File.new("#{Rails.root}/db/seed_bots/rampancy.WhuphsCT_1.0.jar"),
+  :category_ids => [a_one_v_one.id, a_mele.id]
+})
+
+rampancy.bots.create({
+  :jar_file => File.new("#{Rails.root}/db/seed_bots/rampancy.tycho.Tycho_1.0.jar"),
+  :category_ids => [a_one_v_one.id]
+})
+
+rampancy.bots.create({
+  :jar_file => File.new("#{Rails.root}/db/seed_bots/rampancy.Durandal_2.2d.jar"),
+  :category_ids => [a_one_v_one.id]
 })
 
 # create a htf match

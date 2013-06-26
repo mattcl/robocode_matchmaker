@@ -9,7 +9,7 @@
             <th>Winner:</th><td><%= link_to @match.winner.bot.proper_name, bot_path(@match.winner.bot) %></td>
           </tr>
           <tr>
-            <th>Match type:</th><td><%= @match.category.name %></td>
+            <th>Match type:</th><td><%= @match.category.detail_name %></td>
           </tr>
           <tr>
             <th>Number of rounds:</th><td><%= @match.category.battle_configuration.num_rounds %></td>

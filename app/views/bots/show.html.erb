@@ -9,7 +9,7 @@
     <table>
       <tr>
         <th>Categories:</th>
-        <td><%= @bot.categories.collect(&:name).sort.join(', ') %></td>
+        <td><%= @bot.categories.collect(&:detail_name).sort.join(', ') %></td>
       </tr>
       <tr>
         <th>Matches played:</th>
