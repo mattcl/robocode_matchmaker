@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130511074447) do
+ActiveRecord::Schema.define(:version => 20130626052609) do
 
   create_table "battle_configurations", :force => true do |t|
     t.string   "description"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20130511074447) do
     t.string  "name"
     t.integer "battle_configuration_id"
     t.integer "matches_count",           :default => 0
+    t.integer "skill_level_id"
   end
 
   create_table "entries", :force => true do |t|
@@ -74,6 +75,12 @@ ActiveRecord::Schema.define(:version => 20130511074447) do
     t.datetime "finished_at"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "skill_levels", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -3,7 +3,10 @@ class BotsController < InheritedResources::Base
 
   def index
     @bots = Bot.includes(:categories, :user)
-    @bot = current_user.bots.new if user_signed_in?
+    if user_signed_in?
+      @bot = current_user.bots.new
+      @skill_levels = SkillLevel.all
+    end
   end
 
   def show

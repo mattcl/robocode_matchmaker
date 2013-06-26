@@ -40,7 +40,8 @@
       <div class="form-inputs">
         <%= f.input :jar_file, :as => :file, :required => true, :wrapper => :foundation_modified, :label => 'Select jar file' %>
         <br />
-        <%= f.association :categories, :as => :check_boxes, :required => true, :wrapper => :foundation_modified, :label => 'Bot type' %>
+        <%= f.association :categories, :as => :check_boxes, :required => true,
+          :wrapper => :foundation_modified, :label => 'Bot type', :label_method => lambda { |c| c.detail_name} %>
       </div>
 
       <br />

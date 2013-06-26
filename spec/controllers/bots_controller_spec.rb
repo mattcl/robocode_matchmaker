@@ -17,12 +17,20 @@ describe BotsController do
     end
 
     context 'with an authenticated User' do
-      it 'includes a new Bot' do
-        user = create(:user)
-        sign_in user
+      before(:each) do
+        create_list(:skill_level, 2)
+        @user = create(:user)
+        sign_in @user
         get 'index'
+      end
+
+      it 'includes a new Bot' do
         assigns(:bot).should be_a(Bot)
         assigns(:bot).should be_new_record
+      end
+
+      it 'includes a list of Skill Levels' do
+        assigns(:skill_levels).should eq(SkillLevel.all)
       end
     end
   end

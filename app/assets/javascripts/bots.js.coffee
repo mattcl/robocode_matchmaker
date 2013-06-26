@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
+
   if $('#upload_form_modal').find('.alert-box').length > 0
     $('#upload_form_modal').foundation('reveal', 'open')
 

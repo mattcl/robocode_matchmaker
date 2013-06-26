@@ -4,6 +4,7 @@ describe Category do
   it { should have_and_belong_to_many(:bots) }
   it { should have_many(:matches) }
   it { should belong_to(:battle_configuration) }
+  it { should belong_to(:skill_level) }
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:battle_configuration) }
 
@@ -36,6 +37,15 @@ describe Category do
 
     context 'when no Catgory matches the criteria' do
       it { expect(Category.best_for_next_match).to be_nil }
+    end
+  end
+
+  describe '#detail_name' do
+    it 'includes the Skill Level' do
+      skill_level = create(:skill_level)
+      category = create(:category, :skill_level => skill_level)
+      expected = "#{skill_level.name} #{category.name}"
+      category.detail_name.should eq(expected)
     end
   end
 

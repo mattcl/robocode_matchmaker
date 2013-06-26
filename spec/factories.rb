@@ -6,9 +6,14 @@ FactoryGirl.define do
     password_confirmation { 'test1234' }
   end
 
+  factory :skill_level do
+    sequence(:name) { |n| "skill_level-#{n}" }
+  end
+
   factory :category do
     sequence(:name) { |n| "category-#{n}" }
     association :battle_configuration
+    association :skill_level
   end
 
   factory :bot do
