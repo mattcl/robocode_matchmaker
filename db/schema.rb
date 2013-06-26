@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130626052609) do
+ActiveRecord::Schema.define(:version => 20130626071839) do
 
   create_table "battle_configurations", :force => true do |t|
     t.string   "description"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20130626052609) do
     t.integer "battle_configuration_id"
     t.integer "matches_count",           :default => 0
     t.integer "skill_level_id"
+    t.integer "attempts",                :default => 0
   end
 
   create_table "entries", :force => true do |t|

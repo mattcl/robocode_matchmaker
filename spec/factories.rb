@@ -14,6 +14,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "category-#{n}" }
     association :battle_configuration
     association :skill_level
+    attempts 0
   end
 
   factory :bot do

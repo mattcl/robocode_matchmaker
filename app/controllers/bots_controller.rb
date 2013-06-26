@@ -2,10 +2,10 @@ class BotsController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
+    @skill_levels = SkillLevel.includes(:categories)
     @bots = Bot.includes(:categories, :user)
     if user_signed_in?
       @bot = current_user.bots.new
-      @skill_levels = SkillLevel.all
     end
   end
 

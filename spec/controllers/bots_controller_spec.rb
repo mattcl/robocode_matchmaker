@@ -9,6 +9,12 @@ describe BotsController do
       assigns(:bots).should eq(bots)
     end
 
+    it 'includes a list of Skill Levels' do
+      skill_levels = create_list(:skill_level, 2)
+      get 'index'
+      assigns(:skill_levels).should eq(skill_levels)
+    end
+
     context 'without an authenticated User' do
       it 'does not include a new Bot' do
         get 'index'
@@ -18,20 +24,16 @@ describe BotsController do
 
     context 'with an authenticated User' do
       before(:each) do
-        create_list(:skill_level, 2)
         @user = create(:user)
         sign_in @user
-        get 'index'
       end
 
       it 'includes a new Bot' do
+        get 'index'
         assigns(:bot).should be_a(Bot)
         assigns(:bot).should be_new_record
       end
 
-      it 'includes a list of Skill Levels' do
-        assigns(:skill_levels).should eq(SkillLevel.all)
-      end
     end
   end
 

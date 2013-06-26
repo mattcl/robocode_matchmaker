@@ -9,6 +9,21 @@ describe Category do
   it { should validate_presence_of(:battle_configuration) }
 
   context 'scopes' do
+    describe 'by_fewest_attempts' do
+      it 'orders by fewest attempts ASC' do
+        create(:category, :attempts => 0)
+        create(:category, :attempts => 5)
+        create(:category, :attempts => 3)
+        create(:category, :attempts => 7)
+        result = Category.by_fewest_attempts
+        result.should have(4).categories
+        result.shift.attempts.should eq(0)
+        result.shift.attempts.should eq(3)
+        result.shift.attempts.should eq(5)
+        result.shift.attempts.should eq(7)
+      end
+    end
+
     describe 'by_fewest_matches' do
       it 'orders by fewest matches ASC' do
         create(:category, :matches_count => 0)
@@ -26,13 +41,12 @@ describe Category do
   end
 
   describe '.best_for_next_match' do
-    it 'returns the first Category (sorted on fewest Matches) that has least one Bot' do
-      category1 = create(:category, :matches_count => 0)
-      category2 = create(:category, :matches_count => 5)
-      category3 = create(:category, :matches_count => 3)
-      category4 = create(:category, :matches_count => 7)
-      create(:bot, :categories => [category2, category3, category4])
-      Category.best_for_next_match.should eq(category3)
+    it 'returns the Category with the fewest attempts' do
+      category2 = create(:category, :attempts => 5)
+      category4 = create(:category, :attempts => 7)
+      category1 = create(:category, :attempts => 0)
+      category3 = create(:category, :attempts => 3)
+      Category.best_for_next_match.should eq(category1)
     end
 
     context 'when no Catgory matches the criteria' do
@@ -46,6 +60,13 @@ describe Category do
       category = create(:category, :skill_level => skill_level)
       expected = "#{skill_level.name} #{category.name}"
       category.detail_name.should eq(expected)
+    end
+  end
+
+  describe '#note_attempt' do
+    it 'increments the number of attempts by 1' do
+      category = create(:category)
+      expect { category.note_attempt }.to change(category, :attempts).by(1)
     end
   end
 

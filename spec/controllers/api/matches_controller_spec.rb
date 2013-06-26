@@ -54,6 +54,14 @@ describe Api::MatchesController do
         Match.find(body['match']).category.should eq(category)
       end
 
+      it 'updates the attempts on the chosen Category' do
+        category = create(:category, :matches_count => 3)
+        create_list(:bot, 2, :categories => [category])
+        Category.should_receive(:best_for_next_match).and_return(category)
+
+        expect { post :create, :format => :json }.to change(category, :attempts).by(1)
+      end
+
       context 'when no Categories with Bots exist' do
         it 'responds with a no-op' do
           post :create, :format => :json

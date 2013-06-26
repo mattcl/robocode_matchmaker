@@ -7,7 +7,10 @@ class Api::MatchesController < ApplicationController
       @match = pending_matches.first
     else
       category = Category.best_for_next_match
-      @match = Match.create_for(category) unless category.nil?
+      unless category.nil?
+        category.note_attempt
+        @match = Match.create_for(category)
+      end
     end
 
     if @match.nil?

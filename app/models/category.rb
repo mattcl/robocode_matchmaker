@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  attr_accessible :name, :battle_configuration, :skill_level
+  attr_accessible :name, :battle_configuration, :skill_level, :attempts
 
   has_and_belongs_to_many :bots
   has_many :matches
@@ -9,14 +9,19 @@ class Category < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :battle_configuration
 
+  scope :by_fewest_attempts, -> { order('attempts ASC') }
   scope :by_fewest_matches, -> { order('matches_count ASC') }
 
   def self.best_for_next_match
-    Category.by_fewest_matches.reject { |c| c.bots.empty? }.first
+    Category.by_fewest_attempts.first
   end
 
   def detail_name
     "#{skill_level.name} #{name}"
+  end
+
+  def note_attempt
+    increment!(:attempts)
   end
 
   def unique_bots
