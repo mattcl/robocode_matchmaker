@@ -168,13 +168,13 @@ the radar to finish turning before we can move it in a different way.
 
 When facing many enemies, a spinning radar is sufficient. In this case, our
 radar movement is just the backup component (spin your radar around infinitely).
-There are more complex mele radars that involve moving to the last scanned enemy
+There are more complex melee radars that involve moving to the last scanned enemy
 first, but that's more advanced than you need to worry about right now.
 
 ### "Locking" radar ###
 
 
-In 1v1 battles (and sometimes even in mele) the more frequently we can scan the
+In 1v1 battles (and sometimes even in melee) the more frequently we can scan the
 enemy robot, the better (since we can react more frequently). One way to
 achieve this is with a "locking" radar:
 
@@ -201,6 +201,6 @@ in short, we compute an angle that is less than or equal to the max radar turn
 (40) degrees and use that to turn slightly further than it would take to turn
 our radar to directly face the enemy.
 
-Using a locking radar has its downsides in mele battles, since you are focused
+Using a locking radar has its downsides in melee battles, since you are focused
 on one robot, you may not see the one behind you. Some advanced robots adapt
 their radar strategy based on how many enemy robots are present on the field.

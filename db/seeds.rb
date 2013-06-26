@@ -9,7 +9,7 @@ config_one_on_one = BattleConfiguration.create({
   :height => 600
 })
 
-config_mele = BattleConfiguration.create({
+config_melee = BattleConfiguration.create({
   :description => 'A 5 bot brawl',
   :num_bots => 5,
   :num_rounds => 5,
@@ -24,13 +24,13 @@ advanced = SkillLevel.create({:name => 'Advanced'})
 
 # create our default categories
 one_v_one = Category.create({:name => '1v1', :battle_configuration  => config_one_on_one, :skill_level => beginner})
-mele      = Category.create({:name => 'Mele', :battle_configuration => config_mele, :skill_level       => beginner})
+melee      = Category.create({:name => 'Mele', :battle_configuration => config_melee, :skill_level       => beginner})
 
 i_one_v_one = Category.create({:name => '1v1', :battle_configuration  => config_one_on_one, :skill_level => intermediate})
-i_mele      = Category.create({:name => 'Mele', :battle_configuration => config_mele, :skill_level       => intermediate})
+i_melee      = Category.create({:name => 'Mele', :battle_configuration => config_melee, :skill_level       => intermediate})
 
 a_one_v_one = Category.create({:name => '1v1', :battle_configuration => config_one_on_one, :skill_level => advanced})
-a_mele      = Category.create({:name => 'Mele', :battle_configuration => config_mele, :skill_level => advanced})
+a_melee      = Category.create({:name => 'Mele', :battle_configuration => config_melee, :skill_level => advanced})
 
 exit 0 if Rails.env == 'production'
 
@@ -43,33 +43,33 @@ rampancy = User.create(:username => 'rampancy', :email => 'mchunlum@gmail.com', 
 # create the bots for the htf user
 crazy = htf_user.bots.create({
   :jar_file => File.new("#{Rails.root}/db/seed_bots/htf.Crazy_1.0.jar"),
-  :category_ids => [one_v_one.id, mele.id]
+  :category_ids => [one_v_one.id, melee.id]
 })
 
 tracker = htf_user.bots.create({
   :jar_file => File.new("#{Rails.root}/db/seed_bots/htf.Tracker_1.0.jar"),
-  :category_ids => [one_v_one.id, mele.id]
+  :category_ids => [one_v_one.id, melee.id]
 })
 
 spinbot = htf_user.bots.create({
     :jar_file => File.new("#{Rails.root}/db/seed_bots/htf.SpinBot_1.0.jar"),
-    :category_ids => [one_v_one.id, mele.id]
+    :category_ids => [one_v_one.id, melee.id]
 })
 
 corners = htf_user.bots.create({
     :jar_file => File.new("#{Rails.root}/db/seed_bots/htf.Corners_1.0.jar"),
-    :category_ids => [one_v_one.id, mele.id]
+    :category_ids => [one_v_one.id, melee.id]
 })
 
 ramfire = htf_user.bots.create({
   :jar_file => File.new("#{Rails.root}/db/seed_bots/htf.RamFire_1.0.jar"),
-  :category_ids => [one_v_one.id, mele.id]
+  :category_ids => [one_v_one.id, melee.id]
 })
 
 # intermediate bots
 walls = htf_user.bots.create({
   :jar_file => File.new("#{Rails.root}/db/seed_bots/htf.Walls_1.0.jar"),
-  :category_ids => [i_one_v_one.id, i_mele.id]
+  :category_ids => [i_one_v_one.id, i_melee.id]
 })
 
 # advanced bots
@@ -85,7 +85,7 @@ rampancy.bots.create({
 
 rampancy.bots.create({
   :jar_file => File.new("#{Rails.root}/db/seed_bots/rampancy.WhuphsCT_1.0.jar"),
-  :category_ids => [a_one_v_one.id, a_mele.id]
+  :category_ids => [a_one_v_one.id, a_melee.id]
 })
 
 rampancy.bots.create({
@@ -100,7 +100,7 @@ rampancy.bots.create({
 
 # create a htf match
 match = Match.create({
-  :category => mele,
+  :category => melee,
   :started_at => 5.minutes.ago,
   :finished_at => Time.now
 })
