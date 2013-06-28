@@ -12,7 +12,7 @@
       </thead>
       <% @matches.each do |match| %>
         <tr>
-          <td><%= match.category.name %></td>
+          <td><%= match.category.detail_name %></td>
           <td>
             <% match.entries.each do |entry| %>
               <div class="<%= 'match-winner' if entry.rank == 1%>">
