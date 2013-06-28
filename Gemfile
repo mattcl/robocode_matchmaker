@@ -44,6 +44,9 @@ gem "rabl"
 gem "oj"
 gem "redcarpet"
 gem "high_voltage"
+gem "mysql2"
+
+gem "passenger", :group => [:production]
 
 group :development, :test do
   gem "rspec-rails", "> 2.10.0"

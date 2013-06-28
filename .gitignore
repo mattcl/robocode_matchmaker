@@ -18,6 +18,8 @@
 *.swp
 *.swo
 
+/public/assets
+
 # Ignore jar files
 /public/system/*
 

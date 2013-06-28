@@ -78,6 +78,7 @@ GEM
       cucumber (>= 1.2.0)
       nokogiri (>= 1.5.0)
       rails (~> 3.0)
+    daemon_controller (1.1.4)
     database_cleaner (0.9.1)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
@@ -169,6 +170,7 @@ GEM
     method_source (0.8.1)
     mime-types (1.23)
     multi_json (1.7.2)
+    mysql2 (0.3.11)
     nokogiri (1.5.9)
     oj (2.0.11)
     orm_adapter (0.4.0)
@@ -178,6 +180,10 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.0)
       mime-types
+    passenger (4.0.5)
+      daemon_controller (>= 1.1.0)
+      rack
+      rake (>= 0.8.1)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -291,8 +297,10 @@ DEPENDENCIES
   jbuilder
   jquery-fileupload-rails
   jquery-rails
+  mysql2
   oj
   paperclip
+  passenger
   rabl
   rails (= 3.2.13)
   rb-inotify

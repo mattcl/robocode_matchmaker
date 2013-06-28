@@ -32,8 +32,6 @@ i_melee      = Category.create({:name => 'Mele', :battle_configuration => config
 a_one_v_one = Category.create({:name => '1v1', :battle_configuration => config_one_on_one, :skill_level => advanced})
 a_melee      = Category.create({:name => 'Mele', :battle_configuration => config_melee, :skill_level => advanced})
 
-exit 0 if Rails.env == 'production'
-
 # create default htf user
 htf_user = User.create(:username => 'htf', :email => 'htf@htf.com', :password => 'test1234', :password_confirmation => 'test1234')
 
