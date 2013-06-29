@@ -25,4 +25,23 @@ class User < ActiveRecord::Base
     return 0 if @matches_won.nil?
     @matches_won
   end
+
+  def get_custom_zipfile
+    filenames = Dir.glob(Rails.root.join('public/starter/*.java'))
+    str = Zip::ZipOutputStream.write_buffer do |zio|
+      zio.put_next_entry("instructions.txt")
+      zio.write 'hello world'
+
+      dirname = username
+      filenames.each do |filename|
+        content = File.read(filename)
+        content.gsub!(/package htf;/, "package #{dirname};")
+        zio.put_next_entry("#{username}/#{File.basename(filename)}")
+        zio.write content
+      end
+    end
+
+    str.rewind
+    str.sysread
+  end
 end

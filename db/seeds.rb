@@ -20,7 +20,7 @@ config_melee = BattleConfiguration.create({
 # create our default skill levels
 beginner = SkillLevel.create({:name => 'Beginner'})
 intermediate = SkillLevel.create({:name => 'Intermediate'})
-advanced = SkillLevel.create({:name => 'Advanced'})
+advanced = SkillLevel.create({:name => 'Experienced'})
 
 # create our default categories
 one_v_one = Category.create({:name => '1v1', :battle_configuration  => config_one_on_one, :skill_level => beginner})
@@ -76,20 +76,20 @@ rampancy.bots.create({
   :category_ids => [a_one_v_one.id]
 })
 
-rampancy.bots.create({
-  :jar_file => File.new("#{Rails.root}/db/seed_bots/rampancy.micro.Epiphron_1.0.jar"),
-  :category_ids => [a_one_v_one.id]
-})
+# rampancy.bots.create({
+#   :jar_file => File.new("#{Rails.root}/db/seed_bots/rampancy.micro.Epiphron_1.0.jar"),
+#   :category_ids => [a_one_v_one.id]
+# })
 
 rampancy.bots.create({
   :jar_file => File.new("#{Rails.root}/db/seed_bots/rampancy.WhuphsCT_1.0.jar"),
   :category_ids => [a_one_v_one.id, a_melee.id]
 })
 
-rampancy.bots.create({
-  :jar_file => File.new("#{Rails.root}/db/seed_bots/rampancy.tycho.Tycho_1.0.jar"),
-  :category_ids => [a_one_v_one.id]
-})
+# rampancy.bots.create({
+#   :jar_file => File.new("#{Rails.root}/db/seed_bots/rampancy.tycho.Tycho_1.0.jar"),
+#   :category_ids => [a_one_v_one.id]
+# })
 
 rampancy.bots.create({
   :jar_file => File.new("#{Rails.root}/db/seed_bots/rampancy.Durandal_2.2d.jar"),

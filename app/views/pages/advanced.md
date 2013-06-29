@@ -37,7 +37,7 @@ public void run() {
         setTurnLeft(20);
         setAhead(100);
         setTurnRadarRight(360);
-        waitFor(new TurnCompleteCondition(this));
+        execute();
     }
 }
 ```
