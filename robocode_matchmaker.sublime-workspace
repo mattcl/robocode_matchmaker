@@ -1,0 +1,1143 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"month",
+				"monthly_invite_limit"
+			],
+			[
+				"password",
+				"password_confirmation"
+			],
+			[
+				"n",
+				"name"
+			],
+			[
+				"def",
+				"def	def … end"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/assets/stylesheets/application.css.scss",
+			"settings":
+			{
+				"buffer_size": 734,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/javascripts/application.js",
+			"settings":
+			{
+				"buffer_size": 845,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 96.0,
+		"selected_items":
+		[
+			[
+				"synruby",
+				"Set Syntax: Ruby"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"trailing",
+				"Trailing Spaces: Delete Trailing Spaces"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"rails",
+				"Set Syntax: HTML (Rails)"
+			],
+			[
+				"settings",
+				"Preferences: Settings - User"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"instll",
+				"Package Control: Install Package"
+			],
+			[
+				"synta",
+				"Set Syntax: RSpec"
+			],
+			[
+				"user",
+				"Preferences: Settings - User"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"subl",
+				"SublimeCodeIntel: Reset"
+			],
+			[
+				"sublime",
+				"SublimeCodeIntel: Reset"
+			],
+			[
+				"codeintel",
+				"SublimeCodeIntel: Reset"
+			],
+			[
+				"aut",
+				"Preferences: Settings - Default"
+			],
+			[
+				"cta",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"ctag",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"tags",
+				"CTags: Rebuild Tags"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"codeinte",
+				"SublimeCodeIntel: Reset"
+			],
+			[
+				"packagelist",
+				"Package Control: List Packages"
+			],
+			[
+				"spaces",
+				"Indentation: Convert to Spaces"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 784.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/matt/code/katsu/Gemfile",
+		"/home/matt/code/katsu/app/views/families/_profile_fields.html.erb",
+		"/home/matt/code/katsu/spec/factories/profiles.rb",
+		"/home/matt/code/katsu/config/routes.rb",
+		"/home/matt/code/katsu/db/migrate/20130702024004_add_admin_roles_users_table.rb",
+		"/home/matt/code/katsu/app/controllers/updates_controller.rb",
+		"/home/matt/code/katsu/app/controllers/children_controller.rb",
+		"/home/matt/code/katsu/app/controllers/manage_child_controller.rb",
+		"/home/matt/code/katsu/spec/controllers/manage_child_controller_spec.rb",
+		"/home/matt/code/katsu/app/models/ability.rb",
+		"/home/matt/code/katsu/spec/controllers/tasks_controller_spec.rb",
+		"/home/matt/code/katsu/app/views/children/show.html.erb",
+		"/home/matt/code/katsu/spec/models/task_spec.rb",
+		"/home/matt/code/katsu/app/workers/fredit_tax_worker.rb",
+		"/home/matt/code/katsu/spec/models/profile_spec.rb",
+		"/home/matt/code/katsu/spec/controllers/children_controller_spec.rb",
+		"/home/matt/code/katsu/app/models/family.rb",
+		"/home/matt/code/katsu/app/controllers/tasks_controller.rb",
+		"/home/matt/code/katsu/app/views/manage_child/show.html.erb",
+		"/home/matt/code/katsu/app/models/user.rb",
+		"/home/matt/code/katsu/spec/controllers/families_controller_spec.rb",
+		"/home/matt/code/katsu/app/views/families/_families.html.erb",
+		"/home/matt/code/katsu/app/views/home/index.html.erb",
+		"/home/matt/code/katsu/Guardfile",
+		"/home/matt/code/katsu/spec/spec_helper.rb",
+		"/home/matt/code/katsu/spec/workers/fredit_tax_worker_spec.rb",
+		"/home/matt/code/katsu/db/migrate/20130908191924_add_attachment_photo_to_profiles.rb",
+		"/home/matt/code/katsu/spec/workers/recurring_task_worker_spec.rb",
+		"/home/matt/code/katsu/app/forms/assign_task.rb",
+		"/home/matt/code/katsu/features/support/paths.rb",
+		"/home/matt/code/katsu/spec/workers/task_expire_worker_spec.rb",
+		"/home/matt/code/katsu/app/workers/task_expire_worker.rb",
+		"/home/matt/code/katsu/app/workers/recurring_task_worker.rb",
+		"/home/matt/code/katsu/app/models/task.rb",
+		"/home/matt/code/katsu/app/clock.rb",
+		"/home/matt/code/katsu/spec/factories/tasks.rb",
+		"/home/matt/code/katsu/spec/models/user_spec.rb",
+		"/home/matt/code/katsu/.tags",
+		"/home/matt/code/katsu/features/tracks_browsing.feature",
+		"/home/matt/code/katsu/features/invite_friend.feature",
+		"/home/matt/code/katsu/features/step_definitions/user_steps.rb",
+		"/home/matt/code/katsu/features/step_definitions/tracks_steps.rb",
+		"/home/matt/code/katsu/features/support/env.rb",
+		"/home/matt/code/katsu/features/step_definitions/basic_web_steps.rb",
+		"/home/matt/code/katsu/app/models/goal.rb",
+		"/home/matt/code/katsu/app/views/goals/assign.html.erb",
+		"/home/matt/code/katsu/db/schema.rb",
+		"/home/matt/code/katsu/spec/factories/families.rb",
+		"/home/matt/code/katsu/spec/factories/users.rb",
+		"/home/matt/code/katsu/features/step_definitions/invite_steps.rb",
+		"/home/matt/code/katsu/db/seeds.rb",
+		"/home/matt/code/katsu/app/views/families/new.html.erb",
+		"/home/matt/code/katsu/app/views/families/_form.html.erb",
+		"/home/matt/code/katsu/app/models/balance_log.rb",
+		"/home/matt/code/katsu/spec/factories/balance_log_reasons.rb",
+		"/home/matt/code/katsu/app/assets/javascripts/invite.js.coffee",
+		"/home/matt/code/katsu/spec/forms/assign_task_spec.rb",
+		"/home/matt/code/katsu/spec/factories/balance_logs.rb",
+		"/home/matt/code/katsu/spec/models/balance_log_reason_spec.rb",
+		"/home/matt/code/katsu/app/views/invite_mailer/invite_email.html.erb",
+		"/home/matt/code/katsu/app/mailers/invite_mailer.rb",
+		"/home/matt/code/katsu/spec/models/invite_spec.rb",
+		"/home/matt/code/katsu/spec/mailers/invite_mailer_spec.rb",
+		"/home/matt/code/katsu/app/controllers/registrations_controller.rb",
+		"/home/matt/code/katsu/app/views/devise/registrations/new.html.erb",
+		"/home/matt/code/katsu/app/models/invite.rb",
+		"/home/matt/code/katsu/spec/factories/invites.rb",
+		"/home/matt/code/katsu/app/helpers/application_helper.rb",
+		"/home/matt/code/katsu/app/views/devise/menu/_login_items.html.erb",
+		"/home/matt/code/katsu/app/controllers/invites_controller.rb",
+		"/home/matt/code/katsu/spec/controllers/registrations_controller_spec.rb",
+		"/home/matt/code/katsu/app/services/balance_modifier.rb",
+		"/home/matt/code/katsu/spec/controllers/invites_controller_spec.rb",
+		"/home/matt/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/matt/code/katsu/app/admin/users.rb",
+		"/home/matt/.config/sublime-text-3/Packages/TrailingSpaces/trailing_spaces.sublime-settings",
+		"/home/matt/.config/sublime-text-3/Packages/User/trailing_spaces.sublime-settings",
+		"/home/matt/code/katsu/app/views/layouts/application.html.erb",
+		"/home/matt/code/katsu/app/views/layouts/_flash.html.erb",
+		"/home/matt/code/katsu/spec/models/setting_spec.rb",
+		"/home/matt/code/katsu/app/models/setting.rb",
+		"/home/matt/code/katsu/config/environments/test.rb",
+		"/home/matt/code/katsu/app/views/layouts/home.html.erb",
+		"/home/matt/code/katsu/app/controllers/goals_controller.rb",
+		"/home/matt/code/katsu/app/views/layouts/_site_nav.html.erb",
+		"/home/matt/code/katsu/app/views/invites/new.html.erb",
+		"/home/matt/code/katsu/app/assets/javascripts/home.js.coffee",
+		"/home/matt/code/katsu/features/login.feature",
+		"/home/matt/code/katsu/Gemfile.lock",
+		"/home/matt/code/katsu/app/assets/javascripts/topbar.js.coffee",
+		"/home/matt/code/katsu/app/assets/javascripts/application.js",
+		"/home/matt/code/katsu/app/views/invite_mailer/invite_email.text.erb",
+		"/home/matt/code/katsu/db/migrate/20130825204315_create_invites.rb",
+		"/home/matt/code/katsu/Rakefile",
+		"/home/matt/code/katsu/app/views/welcome/index.html.erb",
+		"/home/matt/code/katsu/app/assets/stylesheets/application.css.scss",
+		"/home/matt/code/katsu/app/assets/stylesheets/welcome.css.scss",
+		"/home/matt/code/katsu/app/assets/javascripts/welcome.js.coffee",
+		"/home/matt/code/katsu/app/assets/stylesheets/foundation_and_overrides.scss",
+		"/home/matt/code/katsu/spec/models/goal_spec.rb",
+		"/home/matt/code/katsu/spec/controllers/goals_controller_spec.rb",
+		"/home/matt/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/matt/code/katsu/spec/controllers/updates_controller_spec.rb",
+		"/home/matt/code/katsu/spec/services/balance_modifier_spec.rb",
+		"/home/matt/code/katsu/db/migrate/20130821031304_add_last_tax_date_to_user.rb",
+		"/home/matt/.config/sublime-text-3/Packages/AdvancedNewFile/Default (Linux).sublime-keymap",
+		"/home/matt/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/matt/code/katsu/db/migrate/20130627030608_create_relationships.rb",
+		"/home/matt/code/katsu/app/views/home/_pending_tasks.html.erb",
+		"/home/matt/code/katsu/spec/javascripts/fixtures/assign_goal_form.html",
+		"/home/matt/code/katsu/spec/javascripts/spec.js.coffee",
+		"/home/matt/code/katsu/app/assets/javascripts/tasks.js.coffee",
+		"/home/matt/code/katsu/spec/javascripts/tasks_spec.js.coffee",
+		"/home/matt/code/katsu/app/assets/javascripts/goal_form_helper.js.coffee",
+		"/home/matt/.config/sublime-text-2/Packages/AdvancedNewFile/Default (Linux).sublime-keymap",
+		"/home/matt/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/matt/.config/sublime-text-2/Packages/User/AdvancedNewFile.sublime-settings",
+		"/home/matt/code/katsu/app/models/relationship.rb",
+		"/home/matt/code/katsu/app/models/profile.rb",
+		"/home/matt/code/katsu/app/assets/stylesheets/forms.css.scss",
+		"/home/matt/code/katsu/app/models/balance_log_reason.rb",
+		"/home/matt/code/katsu/db/migrate/20130721172951_create_balance_log_reasons.rb",
+		"/home/matt/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/matt/code/katsu/spec/factories/relationships.rb",
+		"/home/matt/code/katsu/spec/models/family_spec.rb",
+		"/home/matt/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/matt/code/katsu/config/application.rb",
+		"/home/matt/code/katsu/zeus.json"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"password",
+			"child:",
+			"reward",
+			"child",
+			"goal",
+			"freq",
+			"creator",
+			":invite",
+			"open",
+			"_list",
+			"create_list",
+			"credits",
+			":confirm",
+			" :",
+			"confirm",
+			"put",
+			"c",
+			"}",
+			"14",
+			"dob_offset",
+			"credits",
+			"user",
+			"fredits"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/assets/stylesheets/application.css.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 734,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								579,
+								579
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"vintage":
+							{
+								"action": null,
+								"action_digits":
+								[
+								],
+								"cancel_action": false,
+								"expecting_register": false,
+								"expecting_user_input": false,
+								"mode": 2,
+								"motion": null,
+								"motion_digits":
+								[
+								],
+								"next_mode": 2,
+								"next_mode_command": null,
+								"register": null,
+								"stashed_action": null,
+								"user_action_input": null,
+								"user_input": null,
+								"user_motion_input": null,
+								"xpos": 0
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/assets/javascripts/application.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 845,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								726,
+								726
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"vintage":
+							{
+								"action": null,
+								"action_digits":
+								[
+								],
+								"cancel_action": false,
+								"expecting_register": false,
+								"expecting_user_input": false,
+								"mode": 2,
+								"motion": null,
+								"motion_digits":
+								[
+								],
+								"next_mode": 2,
+								"next_mode_command": null,
+								"register": null,
+								"stashed_action": null,
+								"user_action_input": null,
+								"user_input": null,
+								"user_motion_input": null,
+								"xpos": 21
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"project": "robocode_matchmaker.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"applicjs",
+				"app/assets/javascripts/application.js"
+			],
+			[
+				"application.scs",
+				"app/assets/stylesheets/application.css.scss"
+			],
+			[
+				"devise/edit",
+				"app/views/devise/registrations/edit.html.erb"
+			],
+			[
+				"gemfile",
+				"Gemfile"
+			],
+			[
+				"shcema",
+				"db/schema.rb"
+			],
+			[
+				"invites/",
+				"app/views/invites/new.html.erb"
+			],
+			[
+				"home_helper",
+				"app/helpers/home_helper.rb"
+			],
+			[
+				"profilefields",
+				"app/views/families/_profile_fields.html.erb"
+			],
+			[
+				"userfield",
+				"app/views/families/_user_fields.html.erb"
+			],
+			[
+				"childrenshow",
+				"app/views/children/show.html.erb"
+			],
+			[
+				"user.rb",
+				"app/models/user.rb"
+			],
+			[
+				"factorprof",
+				"spec/factories/profiles.rb"
+			],
+			[
+				"profile.rb",
+				"app/models/profile.rb"
+			],
+			[
+				"ability.rb",
+				"app/models/ability.rb"
+			],
+			[
+				"rout",
+				"config/routes.rb"
+			],
+			[
+				"roures",
+				"db/migrate/20130702024004_add_admin_roles_users_table.rb"
+			],
+			[
+				"routers.rb",
+				"app/controllers/updates_controller.rb"
+			],
+			[
+				"childrencontr",
+				"spec/controllers/children_controller_spec.rb"
+			],
+			[
+				"controller",
+				"app/controllers/children_controller.rb"
+			],
+			[
+				"managecildsho",
+				"app/views/manage_child/show.html.erb"
+			],
+			[
+				"taskcontroller",
+				"app/controllers/tasks_controller.rb"
+			],
+			[
+				"taskscontrspe",
+				"spec/controllers/tasks_controller_spec.rb"
+			],
+			[
+				"managechildspe",
+				"spec/controllers/manage_child_controller_spec.rb"
+			],
+			[
+				"manage_child",
+				"app/controllers/manage_child_controller.rb"
+			],
+			[
+				"family.rb",
+				"app/models/family.rb"
+			],
+			[
+				"routes.rb",
+				"config/routes.rb"
+			],
+			[
+				"contrllerspec",
+				"spec/controllers/families_controller_spec.rb"
+			],
+			[
+				"families/_fam",
+				"app/views/families/_families.html.erb"
+			],
+			[
+				"home/inde",
+				"app/views/home/index.html.erb"
+			],
+			[
+				"spechelper",
+				"spec/spec_helper.rb"
+			],
+			[
+				"guadfile",
+				"Guardfile"
+			],
+			[
+				"profilespec",
+				"spec/models/profile_spec.rb"
+			],
+			[
+				"addattachme",
+				"db/migrate/20130908191924_add_attachment_photo_to_profiles.rb"
+			],
+			[
+				"gemfil",
+				"Gemfile"
+			],
+			[
+				"clock.rb",
+				"app/clock.rb"
+			],
+			[
+				"fredittaxworspe",
+				"spec/workers/fredit_tax_worker_spec.rb"
+			],
+			[
+				"factortask",
+				"spec/factories/tasks.rb"
+			],
+			[
+				"userspec",
+				"spec/models/user_spec.rb"
+			],
+			[
+				"paths.rb",
+				"features/support/paths.rb"
+			],
+			[
+				"tasksep",
+				"spec/models/task_spec.rb"
+			],
+			[
+				"assigntask",
+				"app/forms/assign_task.rb"
+			],
+			[
+				"taskexpspe",
+				"spec/workers/task_expire_worker_spec.rb"
+			],
+			[
+				"taskexp",
+				"app/workers/task_expire_worker.rb"
+			],
+			[
+				"fredittaxworkerspe",
+				"spec/workers/fredit_tax_worker_spec.rb"
+			],
+			[
+				"fredittax",
+				"app/workers/fredit_tax_worker.rb"
+			],
+			[
+				"taskspec.rb",
+				"spec/models/task_spec.rb"
+			],
+			[
+				"task.rb",
+				"app/models/task.rb"
+			],
+			[
+				"expire",
+				"app/workers/task_expire_worker.rb"
+			],
+			[
+				"",
+				".tags"
+			],
+			[
+				"assigntaskspec",
+				"spec/forms/assign_task_spec.rb"
+			],
+			[
+				"taskscontr",
+				"app/controllers/tasks_controller.rb"
+			],
+			[
+				"assigntask.rb",
+				"app/forms/assign_task.rb"
+			],
+			[
+				"taskcn",
+				"app/controllers/tasks_controller.rb"
+			],
+			[
+				"profile_fields",
+				"app/views/families/_profile_fields.html.erb"
+			],
+			[
+				"invitest",
+				"features/step_definitions/invite_steps.rb"
+			],
+			[
+				"_form",
+				"app/views/families/_form.html.erb"
+			],
+			[
+				"families/new",
+				"app/views/families/new.html.erb"
+			],
+			[
+				"seedsrb",
+				"db/seeds.rb"
+			],
+			[
+				"factoriesuser",
+				"spec/factories/users.rb"
+			],
+			[
+				"facusers",
+				"spec/factories/users.rb"
+			],
+			[
+				"websteps",
+				"features/step_definitions/basic_web_steps.rb"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"env.r",
+				"features/support/env.rb"
+			],
+			[
+				"factofami",
+				"spec/factories/families.rb"
+			],
+			[
+				"tasksteps",
+				"features/step_definitions/tracks_steps.rb"
+			],
+			[
+				"user_steps",
+				"features/step_definitions/user_steps.rb"
+			],
+			[
+				"schema.rb",
+				"db/schema.rb"
+			],
+			[
+				"feature",
+				"features/tracks_browsing.feature"
+			],
+			[
+				"featue",
+				"features/invite_friend.feature"
+			],
+			[
+				"assign_task.fea",
+				"features/assign_task.feature"
+			],
+			[
+				"goalsassig",
+				"app/views/goals/assign.html.erb"
+			],
+			[
+				"taskscontroler",
+				"app/controllers/tasks_controller.rb"
+			],
+			[
+				"taskscontrollerse",
+				"spec/controllers/tasks_controller_spec.rb"
+			],
+			[
+				"goal",
+				"app/models/goal.rb"
+			],
+			[
+				"assigntaskspe",
+				"spec/forms/assign_task_spec.rb"
+			],
+			[
+				"balancelogreas",
+				"spec/models/balance_log_reason_spec.rb"
+			],
+			[
+				"balanclogreasons",
+				"spec/factories/balance_log_reasons.rb"
+			],
+			[
+				"balance_log",
+				"app/models/balance_log.rb"
+			],
+			[
+				"factorbala",
+				"spec/factories/balance_logs.rb"
+			],
+			[
+				"assigtask",
+				"spec/forms/assign_task_spec.rb"
+			],
+			[
+				"assin",
+				"app/forms/assign_task.rb"
+			],
+			[
+				"invite_mailer",
+				"app/mailers/invite_mailer.rb"
+			],
+			[
+				"invite_email.html",
+				"app/views/invite_mailer/invite_email.html.erb"
+			],
+			[
+				"invitemailerspe",
+				"spec/mailers/invite_mailer_spec.rb"
+			],
+			[
+				"invitemailer",
+				"app/mailers/invite_mailer.rb"
+			],
+			[
+				"invites_contr",
+				"spec/controllers/invites_controller_spec.rb"
+			],
+			[
+				"invites_cont",
+				"app/controllers/invites_controller.rb"
+			],
+			[
+				"loginitem",
+				"app/views/devise/menu/_login_items.html.erb"
+			],
+			[
+				"user_spe",
+				"spec/models/user_spec.rb"
+			],
+			[
+				"applicationherl",
+				"app/helpers/application_helper.rb"
+			],
+			[
+				"facuser",
+				"spec/factories/users.rb"
+			],
+			[
+				"users.rb",
+				"app/admin/users.rb"
+			],
+			[
+				"invitesrb",
+				"spec/factories/invites.rb"
+			],
+			[
+				"invite.rb",
+				"app/models/invite.rb"
+			],
+			[
+				"balancemodief",
+				"app/services/balance_modifier.rb"
+			],
+			[
+				"registra",
+				"spec/controllers/registrations_controller_spec.rb"
+			],
+			[
+				"devise/regis",
+				"app/views/devise/registrations/new.html.erb"
+			],
+			[
+				"registrationcontr",
+				"app/controllers/registrations_controller.rb"
+			],
+			[
+				"assign_taskspe",
+				"spec/forms/assign_task_spec.rb"
+			],
+			[
+				"env",
+				"config/environments/test.rb"
+			],
+			[
+				"settingr",
+				"app/models/setting.rb"
+			],
+			[
+				"settispe",
+				"spec/models/setting_spec.rb"
+			],
+			[
+				"invitesteps",
+				"features/step_definitions/invite_steps.rb"
+			],
+			[
+				"invitfea",
+				"features/invite_friend.feature"
+			],
+			[
+				"flash.",
+				"app/views/layouts/_flash.html.erb"
+			],
+			[
+				"applicathtmler",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"flash",
+				"app/views/layouts/_flash.html.erb"
+			],
+			[
+				"home.html.erb",
+				"app/views/layouts/home.html.erb"
+			],
+			[
+				"application.html",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"invite.c",
+				"app/assets/javascripts/invite.js.coffee"
+			],
+			[
+				"guar",
+				"Guardfile"
+			],
+			[
+				"guardfile",
+				"Guardfile"
+			],
+			[
+				"gemfil.lc",
+				"Gemfile.lock"
+			],
+			[
+				"guarfile",
+				"Guardfile"
+			],
+			[
+				"guardfil",
+				"Guardfile"
+			],
+			[
+				"userste",
+				"features/step_definitions/user_steps.rb"
+			],
+			[
+				"loginfeatu",
+				"features/login.feature"
+			],
+			[
+				"featuresen",
+				"features/support/env.rb"
+			],
+			[
+				"webstep",
+				"features/step_definitions/basic_web_steps.rb"
+			],
+			[
+				"invitestep",
+				"features/step_definitions/invite_steps.rb"
+			],
+			[
+				"invitefeatu",
+				"features/invite_friend.feature"
+			],
+			[
+				"invitecont",
+				"app/controllers/invites_controller.rb"
+			],
+			[
+				"home.js",
+				"app/assets/javascripts/home.js.coffee"
+			],
+			[
+				"router",
+				"config/routes.rb"
+			],
+			[
+				"invites_con",
+				"app/controllers/invites_controller.rb"
+			],
+			[
+				"sitenav",
+				"app/views/layouts/_site_nav.html.erb"
+			],
+			[
+				"topbar",
+				"app/assets/javascripts/topbar.js.coffee"
+			],
+			[
+				"application.js",
+				"app/assets/javascripts/application.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"kat",
+				"~/code/katsu/katsu.sublime-project"
+			],
+			[
+				"kats",
+				"~/code/katsu/katsu.sublime-project"
+			],
+			[
+				"res",
+				"~/code/resume/resume.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+		"vintage":
+		{
+			"_cmdline_cd": "/opt/sublime_text"
+		}
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

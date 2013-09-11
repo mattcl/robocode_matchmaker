@@ -44,7 +44,7 @@ gem "rabl"
 gem "oj"
 gem "redcarpet"
 gem "high_voltage"
-gem "mysql2"
+#gem "mysql2"
 gem "rubyzip", :require => 'zip/zip'
 
 gem "passenger", :group => [:production]
